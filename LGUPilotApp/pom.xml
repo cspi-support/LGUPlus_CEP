@@ -22,8 +22,9 @@
 	</parent>
 
 	<properties>
-		<dockerDomain>example.com</dockerDomain>
-		<private.registry.url>172.18.113.153:5000</private.registry.url>
+	
+	<!-- 	<dockerDomain>example.com</dockerDomain>   -->
+		<dockerDomain>172.18.113.153:5000</dockerDomain>
 	</properties>
 
 	<build>
@@ -137,16 +138,6 @@
 					</execution>
 				</executions>
 				
-				
-				
-				<!-- docker registry 구성위해 여기 추가 -->
-				<configuration>
-					<repository>${private.registry.url}/n3d4ti/${project.artifactId}</repository>
-					<tag>latest</tag>
-					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-					<skip>false</skip>
-				</configuration>
-				<!-- docker registry 구성위해 여기 추가 -->
 			</plugin>
 		</plugins>
 	</build>

@@ -22,9 +22,8 @@
 	</parent>
 
 	<properties>
-	
-	<!-- 	<dockerDomain>example.com</dockerDomain>   -->
-		<dockerDomain>172.18.113.153:5000</dockerDomain>
+		<dockerDomain>example.com</dockerDomain>
+		<private.registry.url>172.17.121.34:5000</private.registry.url>
 	</properties>
 
 	<build>
@@ -37,8 +36,6 @@
 					<skipTests>${skipLocalTests}</skipTests>
 					<nodes>
 						<node>A</node>
-						<node>B</node>
-						<node>C</node>
 					</nodes>
 				</configuration>
 			</plugin>
@@ -79,50 +76,6 @@
 										<namingStrategy>alias</namingStrategy>
 									</run>
 								</image>
-								<image>
-									<name>%g/%a:%l</name>
-									<alias>B.${project.artifactId}</alias>
-									<run>
-										<network>
-											<name>${dockerDomain}</name>
-											<alias>B.${dockerDomain}</alias>
-										</network>
-										<hostname>B.${dockerDomain}</hostname>
-										<env>
-											<NODENAME>B.${project.artifactId}</NODENAME>
-										</env>
-										<log>
-											<enabled>true</enabled>
-										</log>
-										<wait>
-											<log>COMMAND FINISHED</log>
-											<time>100000</time>
-										</wait>
-										<namingStrategy>alias</namingStrategy>
-									</run>
-								</image>
-								<image>
-									<name>%g/%a:%l</name>
-									<alias>C.${project.artifactId}</alias>
-									<run>
-										<network>
-											<name>${dockerDomain}</name>
-											<alias>C.${dockerDomain}</alias>
-										</network>
-										<hostname>C.${dockerDomain}</hostname>
-										<env>
-											<NODENAME>C.${project.artifactId}</NODENAME>
-										</env>
-										<log>
-											<enabled>true</enabled>
-										</log>
-										<wait>
-											<log>COMMAND FINISHED</log>
-											<time>100000</time>
-										</wait>
-										<namingStrategy>alias</namingStrategy>
-									</run>
-								</image>
 							</images>
 						</configuration>
 					</execution>
@@ -138,6 +91,14 @@
 					</execution>
 				</executions>
 				
+				<!-- docker registry 구성위해 여기 추가 -->
+				<configuration>
+					<repository>${private.registry.url}/n3d4ti/${project.artifactId}</repository>
+					<tag>latest</tag>
+					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+					<skip>false</skip>
+				</configuration>
+				<!-- docker registry 구성위해 여기 추가 -->
 			</plugin>
 		</plugins>
 	</build>

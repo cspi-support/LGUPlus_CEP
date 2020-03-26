@@ -22,7 +22,7 @@
 	</parent>
 
 	<properties>
-		<dockerDomain>172.17.121.34:5000</dockerDomain>
+		<dockerDomain>com.example</dockerDomain>
 		<private.registry.url>172.17.121.34:5000</private.registry.url>
 	</properties>
 

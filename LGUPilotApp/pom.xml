@@ -53,8 +53,6 @@
 							<startParallel>true</startParallel>
 							<skip>${skipDockerTests}</skip>
 							<autoCreateCustomNetworks>true</autoCreateCustomNetworks>
-
-
 							<images>
 								<image>
 									<name>%g/%a:%l</name>
@@ -89,6 +87,16 @@
 						</goals>
 						<configuration>
 							<skip>${skipDockerTests}</skip>
+						</configuration>
+					</execution>
+					<execution>
+						<id>push-image</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>push</goal>
+						</goals>
+						<configuration>
+							<imageName>${private.registry.url}/${project.artifactId}:${project.version}</imageName>
 						</configuration>
 					</execution>
 				</executions>

@@ -90,8 +90,15 @@
 							<skip>${skipDockerTests}</skip>
 						</configuration>
 					</execution>
+				</executions>
+			</plugin>
 
 
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>latest</version>
+				<executions>
 					<execution>
 						<id>build-image</id>
 						<phase>package</phase>
@@ -109,10 +116,10 @@
 							<imageName>${private.registry.url}/${project.artifactId}:${project.version}</imageName>
 						</configuration>
 					</execution>
-
-
 				</executions>
 			</plugin>
+
+
 		</plugins>
 	</build>
 

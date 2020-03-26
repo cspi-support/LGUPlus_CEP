@@ -97,7 +97,7 @@
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
-				<version>latest</version>
+				<version>1.4.13</version>
 				<executions>
 					<execution>
 						<id>build-image</id>

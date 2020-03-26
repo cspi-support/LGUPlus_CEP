@@ -100,13 +100,6 @@
 				<version>1.4.13</version>
 				<executions>
 					<execution>
-						<id>build-image</id>
-						<phase>package</phase>
-						<goals>
-							<goal>build</goal>
-						</goals>
-					</execution>
-					<execution>
 						<id>push-image</id>
 						<phase>deploy</phase>
 						<goals>

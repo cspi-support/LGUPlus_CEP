@@ -97,6 +97,7 @@
 							<goal>push</goal>
 						</goals>
 						<configuration>
+							<pushRegistry>${private.registry.url</pushRegistry>
 							<imageName>${private.registry.url}/${project.artifactId}:${project.version}</imageName>
 						</configuration>
 					</execution>

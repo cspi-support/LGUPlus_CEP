@@ -80,16 +80,6 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>stop nodes</id>
-						<phase>post-integration-test</phase>
-						<goals>
-							<goal>stop</goal>
-						</goals>
-						<configuration>
-							<skip>${skipDockerTests}</skip>
-						</configuration>
-					</execution>
-					<execution>
 						<id>push-image</id>
 						<phase>deploy</phase>
 						<goals>
@@ -99,6 +89,17 @@
 							<imageName>${private.registry.url}/${project.artifactId}:${project.version}</imageName>
 						</configuration>
 					</execution>
+					<execution>
+						<id>stop nodes</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>stop</goal>
+						</goals>
+						<configuration>
+							<skip>${skipDockerTests}</skip>
+						</configuration>
+					</execution>
+
 				</executions>
 			</plugin>
 		</plugins>

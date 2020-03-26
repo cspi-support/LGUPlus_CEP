@@ -22,7 +22,7 @@
 	</parent>
 
 	<properties>
-		<dockerDomain>example.com</dockerDomain>
+		<dockerDomain>172.17.121.34:5000</dockerDomain>
 		<private.registry.url>172.17.121.34:5000</private.registry.url>
 	</properties>
 
@@ -39,6 +39,7 @@
 					</nodes>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>io.fabric8</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
@@ -90,6 +91,7 @@
 						</configuration>
 					</execution>
 
+
 					<execution>
 						<id>build-image</id>
 						<phase>package</phase>
@@ -107,6 +109,7 @@
 							<imageName>${private.registry.url}/${project.artifactId}:${project.version}</imageName>
 						</configuration>
 					</execution>
+
 
 				</executions>
 			</plugin>

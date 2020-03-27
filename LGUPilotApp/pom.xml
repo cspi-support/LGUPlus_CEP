@@ -23,7 +23,7 @@
 
 	<properties>
 		<dockerDomain>com.example</dockerDomain>
-		<private.registry.url>172.17.121.34:5000</private.registry.url>
+		<private.registry.url>192.168.224.66:5000</private.registry.url>
 	</properties>
 
 	<build>
@@ -89,6 +89,13 @@
 						<configuration>
 							<skip>${skipDockerTests}</skip>
 						</configuration>
+					</execution>
+					<execution>
+						<id>build-image</id>
+						<phase>package</phase>
+						<goals>
+							<goal>build</goal>
+						</goals>
 					</execution>
 					<execution>
 						<id>push-image</id>

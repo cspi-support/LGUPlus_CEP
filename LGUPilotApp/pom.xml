@@ -91,22 +91,36 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>build-image</id>
+						<id>build-image2</id>
 						<phase>package</phase>
 						<goals>
 							<goal>build</goal>
 						</goals>
 					</execution>
 					<execution>
-						<id>push-image</id>
+						<id>push-image2</id>
 						<phase>deploy</phase>
 						<goals>
 							<goal>push</goal>
 						</goals>
 						<configuration>
-							<pushRegistry>${private.registry.url</pushRegistry>
-							<imageName>${private.registry.url}/${project.artifactId}:${project.version}</imageName>
+							<pushRegistry>192.168.224.66:5000</pushRegistry>
+							<imageName>example/lgupilotapp:latest</imageName>
 						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>fabric8-maven-plugin</artifactId>
+				<version>4.4.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>resource</goal>
+							<goal>apply</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>

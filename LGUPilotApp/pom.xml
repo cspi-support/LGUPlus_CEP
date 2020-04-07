@@ -23,7 +23,6 @@
 
 	<properties>
 		<dockerDomain>com.example</dockerDomain>
-		<private.registry.url>192.168.224.66:5000</private.registry.url>
 	</properties>
 
 	<build>
@@ -97,32 +96,41 @@
 							<goal>build</goal>
 						</goals>
 					</execution>
-					<execution>
-						<id>push-image2</id>
-						<phase>deploy</phase>
-						<goals>
-							<goal>push</goal>
-						</goals>
-						<configuration>
-							<pushRegistry>192.168.224.66:5000</pushRegistry>
-							<imageName>example/lgupilotapp:latest</imageName>
-						</configuration>
-					</execution>
 				</executions>
 			</plugin>
 
 			<plugin>
 				<groupId>io.fabric8</groupId>
-				<artifactId>fabric8-maven-plugin</artifactId>
-				<version>4.4.1</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>resource</goal>
-							<goal>apply</goal>
-						</goals>
-					</execution>
-				</executions>
+				<artifactId>docker-maven-plugin</artifactId>
+				<configuration>
+					<startParallel>true</startParallel>
+					<skip>${skipDockerTests}</skip>
+					<autoCreateCustomNetworks>true</autoCreateCustomNetworks>
+					<images>
+						<image>
+							<name>%g/%a:%l</name>
+							<alias>A.${project.artifactId}</alias>
+							<run>
+								<network>
+									<name>${dockerDomain}</name>
+									<alias>A.${dockerDomain}</alias>
+								</network>
+								<hostname>A.${dockerDomain}</hostname>
+								<env>
+									<NODENAME>A.${project.artifactId}</NODENAME>
+								</env>
+								<log>
+									<enabled>true</enabled>
+								</log>
+								<wait>
+									<log>COMMAND FINISHED</log>
+									<time>100000</time>
+								</wait>
+								<namingStrategy>alias</namingStrategy>
+							</run>
+						</image>
+					</images>
+				</configuration>
 			</plugin>
 
 		</plugins>

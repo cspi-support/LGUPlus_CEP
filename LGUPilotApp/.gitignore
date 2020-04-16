@@ -1,1 +1,4 @@
-/target/
+/target/docker
+/target/fabric8
+/target/javadoc*
+/target/maven-archiver

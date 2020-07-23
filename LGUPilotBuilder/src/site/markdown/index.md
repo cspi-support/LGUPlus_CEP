@@ -1,3 +1,0 @@
-# LGUPilotBuilder
-
-My Application

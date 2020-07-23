@@ -1,3 +1,0 @@
-# LGUPilotApp
-
-My Application

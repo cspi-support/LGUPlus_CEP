@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application version="10.5.0_ccb32e4ca924f05a0d59933f58d9d573d97e7fa1">
+    <annotations>
+        <annotation name="hygienic"/>
+    </annotations>
+    <type-metadata>
+        <param name="type" value="interface"/>
+        <param name="fully-qualified-name" value="com.example.ceppoller.CEPPollerInf"/>
+    </type-metadata>
+    <memory-model-settings/>
+    <named-schemas>
+        <schema name="SBPollerOutputSchema">
+            <field name="CUST_NO" type="double"/>
+            <field name="CUST_MEMO_NO" type="int"/>
+            <field name="CUST_GRP_NO" type="double"/>
+            <field name="ENTR_NO" type="double"/>
+            <field name="PROD_NO" type="string"/>
+            <field name="APLY_LVL_CD" type="string"/>
+            <field name="MEMO_CRTE_DLR_CD" type="string"/>
+            <field name="MEMO_CRTE_DLR_NM" type="string"/>
+            <field name="MEMO_CRTE_DTTM" type="string"/>
+            <field name="MEMO_KD_CD" type="string"/>
+            <field name="CTI_CALL_NO" type="int"/>
+            <field name="SYS_CREATION_DATE" type="string"/>
+            <field name="SYS_UPDATE_DATE" type="string"/>
+            <field name="OPPERATOR_ID" type="double"/>
+            <field name="APPLICATION_ID" type="double"/>
+            <field name="DL_SERVER_CODE" type="string"/>
+            <field name="DL_UPDATE_STAMP" type="int"/>
+            <field name="ENTR_RQST_NO" type="int"/>
+            <field name="FLAG" type="string"/>
+        </schema>
+    </named-schemas>
+    <dynamic-variables/>
+    <table-schemas>
+        <table-schema name="TB_SB_CUST_MEMO">
+            <schema>
+                <field name="CUST_NO" type="string"/>
+                <field name="CUST_NO_DTL" type="string"/>
+                <field name="CUST_DTTM" type="string"/>
+                <field name="HPNO" type="string"/>
+                <field name="ENTR_NO" type="string"/>
+                <field name="OPERATOR_ID" type="string"/>
+            </schema>
+            <primary-index type="btree">
+                <field name="CUST_NO"/>
+            </primary-index>
+        </table-schema>
+    </table-schemas>
+</application>

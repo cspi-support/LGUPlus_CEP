@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><application-layout>
+    <component name="InputStream">
+        <param name="gui:x" value="-294"/>
+        <param name="gui:y" value="494"/>
+    </component>
+    <component name="ErrorInputStream">
+        <param name="gui:x" value="-645"/>
+        <param name="gui:y" value="470"/>
+    </component>
+    <component name="JDBCTable">
+        <param name="gui:x" value="488"/>
+        <param name="gui:y" value="650"/>
+        <param name="gui:width" value="80"/>
+        <param name="gui:height" value="56"/>
+    </component>
+    <component name="CUST_CENTER">
+        <param name="gui:x" value="243"/>
+        <param name="gui:y" value="259"/>
+        <param name="gui:bends:1" value="194,458;233,289"/>
+    </component>
+    <component name="CUST_CENTER_APP">
+        <param name="gui:x" value="243"/>
+        <param name="gui:y" value="541"/>
+        <param name="gui:bends:1" value="179,486;199,571"/>
+    </component>
+    <component name="Filter">
+        <param name="gui:x" value="108"/>
+        <param name="gui:y" value="438"/>
+        <param name="gui:height" value="78"/>
+    </component>
+    <component name="HOMEPAGE">
+        <param name="gui:x" value="243"/>
+        <param name="gui:y" value="447"/>
+    </component>
+    <component name="InputAdapter">
+        <param name="gui:x" value="-645"/>
+        <param name="gui:y" value="359"/>
+    </component>
+    <component name="Insert_Target_Table">
+        <param name="gui:x" value="729"/>
+        <param name="gui:y" value="528"/>
+        <param name="gui:bends:1" value="694,484;712,558"/>
+    </component>
+    <component name="Java">
+        <param name="gui:x" value="-294"/>
+        <param name="gui:y" value="400"/>
+    </component>
+    <component name="Make_CUCT_EXP_CNTN10">
+        <param name="gui:x" value="498"/>
+        <param name="gui:y" value="444"/>
+    </component>
+    <component name="Map">
+        <param name="gui:x" value="-409"/>
+        <param name="gui:y" value="400"/>
+        <param name="gui:bends:1" value="-440,398;-416,430"/>
+    </component>
+    <component name="Map2">
+        <param name="gui:x" value="-78"/>
+        <param name="gui:y" value="447"/>
+    </component>
+    <component name="OutputAdapter">
+        <param name="gui:x" value="-519"/>
+        <param name="gui:y" value="470"/>
+    </component>
+    <component name="OutputAdapter3">
+        <param name="gui:x" value="-409"/>
+        <param name="gui:y" value="306"/>
+        <param name="gui:bends:1" value="-446,379;-436,336"/>
+    </component>
+    <component name="STORE">
+        <param name="gui:x" value="229"/>
+        <param name="gui:y" value="359"/>
+    </component>
+    <component name="Select_Join_Tables">
+        <param name="gui:x" value="10"/>
+        <param name="gui:y" value="447"/>
+    </component>
+    <component name="Split">
+        <param name="gui:x" value="618"/>
+        <param name="gui:y" value="444"/>
+    </component>
+    <component name="Split2">
+        <param name="gui:x" value="-519"/>
+        <param name="gui:y" value="359"/>
+    </component>
+    <component name="Union">
+        <param name="gui:x" value="-158"/>
+        <param name="gui:y" value="447"/>
+        <param name="gui:bends:1" value="-188,420;-178,467"/>
+        <param name="gui:bends:2" value="-200,524;-192,487"/>
+    </component>
+    <component name="Union_Data">
+        <param name="gui:x" value="387"/>
+        <param name="gui:y" value="441"/>
+        <param name="gui:height" value="65"/>
+        <param name="gui:bends:1" value="313,289;352,461"/>
+        <param name="gui:bends:3" value="347,571;367,486"/>
+    </component>
+    <component name="Update_Master_CEP">
+        <param name="gui:x" value="841"/>
+        <param name="gui:y" value="528"/>
+    </component>
+    <component name="OutputStream3">
+        <param name="gui:x" value="729"/>
+        <param name="gui:y" value="434"/>
+    </component>
+</application-layout>

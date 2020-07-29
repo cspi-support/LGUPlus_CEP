@@ -121,7 +121,7 @@
             <param name="javaclass" value="com.streambase.sb.adapter.xmloverhttp.XMLOverHTTP"/>
             <param name="FlushInterval" value="0"/>
             <param name="MaxMessageCache" value="0"/>
-            <param name="URL" value="http://service-custmemohist/server"/>
+            <param name="URL" value="https://service-custmemohist/server"/>
             <param name="logLevel" value="INFO"/>
         </box>
     </add>

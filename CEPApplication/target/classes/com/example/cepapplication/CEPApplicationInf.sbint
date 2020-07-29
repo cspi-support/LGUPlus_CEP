@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application version="10.5.0_ccb32e4ca924f05a0d59933f58d9d573d97e7fa1">
+    <annotations>
+        <annotation name="hygienic"/>
+    </annotations>
+    <type-metadata>
+        <param name="type" value="interface"/>
+        <param name="fully-qualified-name" value="com.example.cepapplication.CEPApplicationInf"/>
+    </type-metadata>
+    <memory-model-settings/>
+    <named-schemas>
+        <schema name="CEPAppInputStremSchema">
+            <field name="CUST_NO" type="string"/>
+            <field name="CUST_MEMO_NO" type="string"/>
+            <field name="CUST_GRP_NO" type="string"/>
+            <field name="ENTR_NO" type="string"/>
+            <field name="PROD_NO" type="string"/>
+            <field name="APLY_LVL_CD" type="string"/>
+            <field name="MEMO_CRTE_DLR_CD" type="string"/>
+            <field name="MEMO_CRTE_DLR_NM" type="string"/>
+            <field name="MEMO_CRTE_DTTM" type="string"/>
+            <field name="MEMO_KD_CD" type="string"/>
+            <field name="CTI_CALL_NO" type="string"/>
+            <field name="SYS_CREATION_DATE" type="string"/>
+            <field name="SYS_UPDATE_DATE" type="string"/>
+            <field name="OPERATOR_ID" type="string"/>
+            <field name="APPLICATION_ID" type="string"/>
+            <field name="DL_SERVICE_CODE" type="string"/>
+            <field name="DL_UPDATE_STAMP" type="string"/>
+            <field name="ENTR_RQST_NO" type="string"/>
+            <field name="FLAG" type="string"/>
+            <field name="RET_CNT" type="string"/>
+        </schema>
+        <schema name="CEPCustMemoAddedSchema">
+            <field name="CUCT_DATA_SRCE_CD" type="string"/>
+            <field name="CUCT_DATA_SRCE_NM" type="string"/>
+            <field name="CUCT_KD_CD" type="string"/>
+            <field name="CUCT_KD_NM" type="string"/>
+            <field name="CUCT_CHNL_KD_SRC_CDV" type="string"/>
+            <field name="CUCT_CHNL_KD_NM" type="string"/>
+            <field name="CUCT_CHNL_DIVS_CDV" type="string"/>
+            <field name="CUCT_CHNL_DIVS_NM" type="string"/>
+        </schema>
+        <schema name="CEPCustMemoSchema">
+            <field name="MEMO_CRTE_DTTM" type="string"/>
+            <field name="CUST_NO" type="int"/>
+            <field name="ENTR_NO" type="int"/>
+            <field name="ORG_KD_CD" type="int"/>
+            <field name="BIZBR_NM" type="string"/>
+            <field name="MEMO_KD_CD" type="string"/>
+            <field name="MEMO_NM" type="string"/>
+            <field name="USER_MEMO" type="string"/>
+            <field name="SYS_MEMO" type="string"/>
+            <field name="OPERATOR_ID" type="int"/>
+            <field name="APPLICATION_ID" type="string"/>
+            <field name="CUST_MEMO_NO" type="string"/>
+            <field name="ORG_DV_CD" type="string"/>
+            <field name="USER_DV_CD" type="string"/>
+            <field name="CUST_GRP_NO" type="int"/>
+        </schema>
+    </named-schemas>
+    <dynamic-variables/>
+    <table-schemas>
+        <table-schema name="CM_HB_ORG_BY_LVL">
+            <schema>
+                <field name="CUST_NO" type="string"/>
+            </schema>
+            <primary-index type="btree">
+                <field name="CUST_NO"/>
+            </primary-index>
+        </table-schema>
+        <table-schema name="CM_HB_USER">
+            <schema>
+                <field name="CUST_NO" type="string"/>
+            </schema>
+            <primary-index type="btree">
+                <field name="CUST_NO"/>
+            </primary-index>
+        </table-schema>
+        <table-schema name="TB_SB_CUST_MEMO_DTL">
+            <schema>
+                <field name="CUST_MEMO_DTL" type="string"/>
+                <field name="CUST_NO" type="string"/>
+            </schema>
+            <primary-index type="btree">
+                <field name="CUST_MEMO_DTL"/>
+            </primary-index>
+        </table-schema>
+        <table-schema name="TB_SB_MEMO_KD">
+            <schema>
+                <field name="MEMO_KD" type="string"/>
+            </schema>
+            <primary-index type="btree">
+                <field name="MEMO_KD"/>
+            </primary-index>
+        </table-schema>
+    </table-schemas>
+</application>

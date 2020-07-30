@@ -22,7 +22,7 @@
             <param name="start:state" value="true"/>
             <param name="javaclass" value="com.streambase.sb.adapter.webserver.input.WebServerRequest"/>
             <param name="CommandField" value="Command"/>
-            <param name="ContextPath" value="/server"/>
+            <param name="ContextPath" value="/"/>
             <param name="EnableControlPort" value="false"/>
             <param name="EnableStatusPort" value="false"/>
             <param name="FileStoragePath" value=""/>

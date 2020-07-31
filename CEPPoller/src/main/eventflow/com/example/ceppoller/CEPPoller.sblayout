@@ -1,67 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?><application-layout>
     <component name="ErrorInputStream">
-        <param name="gui:x" value="-415"/>
-        <param name="gui:y" value="244"/>
+        <param name="gui:x" value="-440"/>
+        <param name="gui:y" value="251"/>
     </component>
     <component name="JDBCTable">
-        <param name="gui:x" value="-170"/>
-        <param name="gui:y" value="227"/>
+        <param name="gui:x" value="-152"/>
+        <param name="gui:y" value="230"/>
         <param name="gui:width" value="80"/>
         <param name="gui:height" value="56"/>
     </component>
     <component name="Filter">
-        <param name="gui:x" value="-80"/>
-        <param name="gui:y" value="9"/>
+        <param name="gui:x" value="-62"/>
+        <param name="gui:y" value="2"/>
     </component>
     <component name="Metronome5sec">
-        <param name="gui:x" value="-690"/>
-        <param name="gui:y" value="119"/>
+        <param name="gui:x" value="-440"/>
+        <param name="gui:y" value="116"/>
     </component>
     <component name="OutputAdapter">
-        <param name="gui:x" value="238"/>
-        <param name="gui:y" value="97"/>
-        <param name="gui:bends:1" value="180,49;198,127"/>
+        <param name="gui:x" value="167"/>
+        <param name="gui:y" value="2"/>
     </component>
     <component name="OutputAdapter2">
-        <param name="gui:x" value="-301"/>
-        <param name="gui:y" value="244"/>
-    </component>
-    <component name="OutputAdapter3">
-        <param name="gui:x" value="238"/>
-        <param name="gui:y" value="-14"/>
-        <param name="gui:bends:1" value="201,29;203,16"/>
-    </component>
-    <component name="OutputAdapter3Copy">
-        <param name="gui:x" value="-492"/>
-        <param name="gui:y" value="12"/>
+        <param name="gui:x" value="-304"/>
+        <param name="gui:y" value="251"/>
     </component>
     <component name="Retry1min">
-        <param name="gui:x" value="-415"/>
-        <param name="gui:y" value="-1"/>
+        <param name="gui:x" value="-440"/>
+        <param name="gui:y" value="-8"/>
     </component>
     <component name="Select_Master_Cep">
-        <param name="gui:x" value="-301"/>
-        <param name="gui:y" value="118"/>
+        <param name="gui:x" value="-304"/>
+        <param name="gui:y" value="116"/>
     </component>
     <component name="Selet_Master_Cep_For_Retry">
-        <param name="gui:x" value="-301"/>
-        <param name="gui:y" value="-1"/>
-    </component>
-    <component name="Split">
-        <param name="gui:x" value="104"/>
-        <param name="gui:y" value="9"/>
-    </component>
-    <component name="Split2">
-        <param name="gui:x" value="-496"/>
-        <param name="gui:y" value="118"/>
+        <param name="gui:x" value="-304"/>
+        <param name="gui:y" value="-8"/>
     </component>
     <component name="Union2">
-        <param name="gui:x" value="-160"/>
-        <param name="gui:y" value="9"/>
-        <param name="gui:bends:2" value="-202,148;-178,49"/>
+        <param name="gui:x" value="-142"/>
+        <param name="gui:y" value="2"/>
+        <param name="gui:bends:2" value="-188,146;-162,42"/>
     </component>
     <component name="Update_Flag_To_P">
-        <param name="gui:x" value="7"/>
-        <param name="gui:y" value="9"/>
+        <param name="gui:x" value="39"/>
+        <param name="gui:y" value="2"/>
     </component>
 </application-layout>

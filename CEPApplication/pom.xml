@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <!-- vim: set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab : -->
+	<!-- vim: set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab : -->
 
-    <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>CEPApplication</artifactId>
-    <packaging>ep-eventflow-fragment</packaging>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>CEPApplication</name>
-    <description>My EventFlow Fragment</description>
+	<groupId>com.example</groupId>
+	<artifactId>CEPApplication</artifactId>
+	<packaging>ep-eventflow-fragment</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>CEPApplication</name>
+	<description>My EventFlow Fragment</description>
 
-    <!-- common definitions for this version of StreamBase -->
-    <parent>
-        <groupId>com.tibco.ep.sb.parent</groupId>
-        <artifactId>ep-eventflow-fragment</artifactId>
-        <version>10.5.0</version>
-    </parent>
+	<!-- common definitions for this version of StreamBase -->
+	<parent>
+		<groupId>com.tibco.ep.sb.parent</groupId>
+		<artifactId>ep-eventflow-fragment</artifactId>
+		<version>10.5.0</version>
+	</parent>
 
-    
-    	<repositories>
+
+	<repositories>
 		<repository>
 			<id>Spring Plugins</id>
 			<url>https://repo.spring.io/plugins-release/</url>
@@ -42,5 +44,40 @@
 			<artifactId>webserver</artifactId>
 			<version>10.5.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-resources-plugin</artifactId>
+			<version>2.4.3</version>
+		</dependency>
 	</dependencies>
+
+	<build>
+
+		<plugins>
+		<plugin>
+			<artifactId>maven-assembly-plugin</artifactId>
+			<configuration>
+				<archive>
+					<manifest>
+						<mainClass>com.test.App</mainClass>
+					</manifest>
+				</archive>
+				<descriptorRefs>
+					<descriptorRef>jar-with-dependencies</descriptorRef>
+				</descriptorRefs>
+			</configuration>
+			<executions>
+				<execution>
+					<id>make-assembly</id>
+					<phase>package</phase>
+					<goals>
+						<goal>single</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+		</plugins>
+
+	</build>
+
 </project>

@@ -21,7 +21,6 @@
 		<version>10.5.0</version>
 	</parent>
 
-
 	<repositories>
 			<repository>
 				<id>SB10-local-repo</id>

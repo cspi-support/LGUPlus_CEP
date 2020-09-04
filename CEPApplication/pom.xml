@@ -23,10 +23,6 @@
 
 	<repositories>
 		<repository>
-			<id>SB10-local-repo</id>
-			<url>file:///C:\tibco\sb-cep\10.5\sdk\maven\repo</url>
-		</repository>
-		<repository>
 			<id>Spring Plugins</id>
 			<url>https://repo.spring.io/plugins-release/</url>
 		</repository>

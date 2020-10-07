@@ -1,0 +1,83 @@
+// This is a sample of the com.tibco.ep.dtm.configuration.application.ApplicationDefinition configuration containing all
+// possible properties. The contents as presented are not valid; uncomment and replace sample values with valid values
+// as needed.
+
+name = "sample-ApplicationDefinition-document"
+type = "com.tibco.ep.dtm.configuration.application"
+version = "1.0.0"
+configuration = {
+	ApplicationDefinition = {
+		//dataDistributionPolicies = {
+			//sample-data-distribution-policy-0 = {
+				//customQuorumNotifiers = [ "sample-data-mapper-name" ]
+				//dataMappers = [ "sample-data-mapper-name" ]
+				//disableAction = "LEAVE_CLUSTER_FORCE"
+				//dynamicDataDistributionPolicy = {
+					//backupDataRedundancy = {
+						//numberOfReplicas = 2
+						//replicationType = "SYNCHRONOUS"
+					//}
+					//numberOfClones = 1000
+					//numberOfPartitions = 64
+					//primaryDataRedundancy = {
+						//numberOfReplicas = 2
+						//replicationType = "SYNCHRONOUS"
+					//}
+				//}
+				//enableAction = "JOIN_CLUSTER"
+				//forceReplication = false
+				//numberOfThreads = 1
+				//objectsLockedPerTransaction = 1000
+				//remoteEnableAction = "ENABLE_PARTITION"
+				//staticDataDistributionPolicy = {
+					//foreignAudit = "VERIFY_NODE_LIST"
+					//replicaAudit = "WAIT_ACTIVE"
+				//}
+				//type = "DYNAMIC"
+			//}
+		//}
+		
+		description = "sample application description"
+		execution = {
+			buildType = "PRODUCTION"
+			//dataTransport = {
+				//deferredWritesEnabled = true
+				//keepAliveSendIntervalSeconds = 1
+				//maximumPDUSizeBytes = 1000000
+				//nodeActiveTimeoutSeconds = 60
+				//nonResponseTimeoutSeconds = 2
+				//tcpNoDelayEnabled = true
+			//}
+			nodeTypes = {
+				node-type-1 = {
+					description = "sample node type description"
+					fragments = [ 
+					"com.lgu.cep.lbtester.SBInputAdapter"
+					"com.lgu.cep.lbtester.SBInputAdapter2" 
+					]
+					//sharedMemory = {
+						//cacheFlush = {
+							//flushIntervalSeconds = 1
+							//maximumObjectsPerType = 0
+						//}
+						//ipc = {
+							//noDestinationTimeoutSeconds = 10
+						//}
+						//memoryAllocators = 0
+						//memorySizeBytes = "512M"
+						//memoryThrottling = {
+							//checksPerSecond = 10
+							//thresholdPercentage = 50
+						//}
+						//memoryType = "FILE"
+					//}
+				}
+			}
+			//transaction = {
+				//maximumBackoffMilliseconds = 10000
+				//numberCompletedTransactions = 1000
+				//timeoutSeconds = 60
+			//}
+		}
+	}
+}

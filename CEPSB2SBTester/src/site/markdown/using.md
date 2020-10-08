@@ -8,7 +8,7 @@ This component is available via maven.  Include in your pom.xml file the followi
         <dependencies>
             <dependency>
                 <groupId>com.lgu.cep</groupId>
-                <artifactId>LBTester</artifactId>
+                <artifactId>CEPSB2SBTester</artifactId>
                 <type>ep-eventflow-fragment</type>
             </dependency>
             ...
@@ -18,7 +18,7 @@ This component is available via maven.  Include in your pom.xml file the followi
             <dependencies>
                 <dependency>
                      <groupId>com.lgu.cep</groupId>
-                     <artifactId>LBTester</artifactId>
+                     <artifactId>CEPSB2SBTester</artifactId>
                      <version>0.0.1-SNAPSHOT</version>
                  </dependency>
                  ...

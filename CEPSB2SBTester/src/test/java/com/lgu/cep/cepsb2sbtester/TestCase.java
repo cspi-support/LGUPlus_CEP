@@ -1,4 +1,4 @@
-package com.lgu.cep.lbtester;
+package com.lgu.cep.cepsb2sbtester;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -45,7 +45,7 @@ public class TestCase extends UnitTest {
         // create a StreamBase server and load modules once for all tests in this class
         server = ServerManagerFactory.getEmbeddedServer();
         server.startServer();
-        server.loadApp("com.lgu.cep.lbtester.LBTester");
+        server.loadApp("com.lgu.cep.cepsb2sbtester.CEPSB2SBTester");
     }
 
     /**

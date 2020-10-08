@@ -6,7 +6,7 @@
         </annotations>
         <type-metadata>
             <param name="type" value="module"/>
-            <param name="fully-qualified-name" value="com.lgu.cep.lbtester.SBInputAdapter2"/>
+            <param name="fully-qualified-name" value="com.lgu.cep.cepsb2sbtester.SBInputAdapter"/>
         </type-metadata>
         <memory-model-settings/>
         <dynamic-variables/>
@@ -34,7 +34,7 @@
             <param name="LowLatency" value="false"/>
             <param name="Password" value=""/>
             <param name="ReconnectInterval" value="5"/>
-            <param name="Schema" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema&gt;&#13;&#10;    &lt;field name=&quot;param&quot; type=&quot;string&quot;/&gt;&#13;&#10;&lt;/schema&gt;&#13;&#10;"/>
+            <param name="Schema" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
             <param name="Schema1" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
             <param name="Schema2" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
             <param name="Schema3" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
@@ -46,7 +46,7 @@
             <param name="Schema9" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
             <param name="SchemaMatching" value="Match field names"/>
             <param name="UpStreamContainer" value="default"/>
-            <param name="UpStreamHost" value="localhost"/>
+            <param name="UpStreamHost" value="{target-url}"/>
             <param name="UpStreamPort" value="10000"/>
             <param name="UpStreamStream" value="OutputStream"/>
             <param name="UpStreamStream1" value=""/>
@@ -61,9 +61,6 @@
             <param name="UserName" value=""/>
             <param name="logLevel" value="INFO"/>
             <param name="useSSL" value="false"/>
-            <clusteraware type="active_multiple_nodes">
-                <active-nodes number="2"/>
-            </clusteraware>
         </box>
         <output-stream name="OutputStream"/>
     </add>

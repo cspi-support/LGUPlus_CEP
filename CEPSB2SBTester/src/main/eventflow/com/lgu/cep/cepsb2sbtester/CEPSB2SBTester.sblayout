@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><application-layout>
+    <component name="Map">
+        <param name="gui:x" value="-70"/>
+        <param name="gui:y" value="91"/>
+    </component>
+    <component name="Metronome">
+        <param name="gui:x" value="-240"/>
+        <param name="gui:y" value="91"/>
+    </component>
+    <component name="Sequence">
+        <param name="gui:x" value="-153"/>
+        <param name="gui:y" value="91"/>
+    </component>
+    <component name="OutputStream">
+        <param name="gui:x" value="18"/>
+        <param name="gui:y" value="91"/>
+    </component>
+</application-layout>

@@ -6,10 +6,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lgu.cep</groupId>
-    <artifactId>LBTester</artifactId>
+    <artifactId>CEPSB2SBTester</artifactId>
     <packaging>ep-eventflow-fragment</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>LBTester</name>
+    <name>CEPSB2SBTester</name>
     <description>My EventFlow Fragment</description>
 
     <!-- common definitions for this version of StreamBase -->

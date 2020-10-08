@@ -6,7 +6,7 @@
         </annotations>
         <type-metadata>
             <param name="type" value="module"/>
-            <param name="fully-qualified-name" value="com.lgu.cep.lbtester.LBTester"/>
+            <param name="fully-qualified-name" value="com.lgu.cep.cepsb2sbtester.CEPSB2SBTester"/>
         </type-metadata>
         <memory-model-settings/>
         <dynamic-variables/>
@@ -15,20 +15,20 @@
             <param name="interval" value="2"/>
             <param name="timestamp-field" value="time"/>
         </box>
-        <box name="os" type="seqnum">
+        <box name="Sequence" type="seqnum">
             <input port="1" stream="out:Metronome_1"/>
-            <output port="1" stream="out:os_1"/>
+            <output port="1" stream="out:Sequence_1"/>
             <param name="output-field" value="seq"/>
-            <param name="sequence-id" value="osid"/>
-            <param name="update-expression" value="osid + 1"/>
+            <param name="sequence-id" value="sequenceid"/>
+            <param name="update-expression" value="sequenceid + 1"/>
         </box>
         <box name="Map" type="map">
-            <input port="1" stream="out:os_1"/>
+            <input port="1" stream="out:Sequence_1"/>
             <output port="1" stream="OutputStream"/>
             <target-list>
                 <item name="input" selection="none"/>
                 <expressions>
-                    <include field="param">string(input1.seq)</include>
+                    <include field="param">string(seq)</include>
                 </expressions>
             </target-list>
         </box>

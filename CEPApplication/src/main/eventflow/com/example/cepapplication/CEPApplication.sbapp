@@ -316,9 +316,9 @@
             <param name="result-set" value="query"/>
             <param name="query-timeout-ms" value="10000"/>
         </box>
-        <box name="OutputAdapter22" type="outputadapter">
+        <box name="OutputAdapter2" type="outputadapter">
             <input port="1" stream="out:Update_Master_CEP_1"/>
-            <output port="1" stream="out:OutputAdapter22_1"/>
+            <output port="1" stream="out:OutputAdapter2_1"/>
             <param name="start:state" value="true"/>
             <param name="javaclass" value="com.streambase.sb.adapter.liveview.LiveViewPublish"/>
             <param name="ackPeriod" value="0"/>
@@ -337,7 +337,7 @@
             <param name="shareConnection" value="true"/>
             <param name="strictSchema" value="false"/>
             <param name="throughPort" value="false"/>
-            <param name="uri" value="lv://localhost:10080"/>
+            <param name="uri" value="lv://localhost:10800"/>
         </box>
     </add>
 </modify>

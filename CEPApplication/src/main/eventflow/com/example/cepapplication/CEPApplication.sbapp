@@ -337,7 +337,7 @@
             <param name="shareConnection" value="true"/>
             <param name="strictSchema" value="false"/>
             <param name="throughPort" value="false"/>
-            <param name="uri" value="lv://localhost"/>
+            <param name="uri" value="lv://localhost:10080"/>
         </box>
     </add>
 </modify>

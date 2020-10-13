@@ -62,10 +62,6 @@
         <param name="gui:x" value="-604"/>
         <param name="gui:y" value="474"/>
     </component>
-    <component name="OutputAdapter2">
-        <param name="gui:x" value="1099"/>
-        <param name="gui:y" value="547"/>
-    </component>
     <component name="OutputAdapter3">
         <param name="gui:x" value="-481"/>
         <param name="gui:y" value="296"/>
@@ -105,6 +101,10 @@
     <component name="Update_Master_CEP">
         <param name="gui:x" value="935"/>
         <param name="gui:y" value="530"/>
+    </component>
+    <component name="OutputAdapter2">
+        <param name="gui:x" value="1100"/>
+        <param name="gui:y" value="523"/>
     </component>
     <component name="OutputStream3">
         <param name="gui:x" value="793"/>

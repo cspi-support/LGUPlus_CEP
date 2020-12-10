@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><application-layout>
+    <component name="Mapper">
+        <param name="gui:x" value="34"/>
+        <param name="gui:y" value="-27"/>
+    </component>
+    <component name="InputAdapter">
+        <param name="gui:x" value="-395"/>
+        <param name="gui:y" value="-36"/>
+    </component>
+    <component name="Sequence">
+        <param name="gui:x" value="-160"/>
+        <param name="gui:y" value="-30"/>
+    </component>
+    <component name="DataOut">
+        <param name="gui:x" value="284"/>
+        <param name="gui:y" value="-25"/>
+    </component>
+</application-layout>

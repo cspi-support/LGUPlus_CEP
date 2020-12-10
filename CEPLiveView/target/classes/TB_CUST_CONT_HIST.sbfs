@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sbfs:Simulation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sbfs="http://www.streambase.com/schemas/feedsim/02/SBFS">
+  <SimStreams Name="DataOut">
+    <ProcessingOptions TimeSynchronized="true"/>
+    <Schema>
+      <Fields Name="APP_NAME" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUCT_EXP_EXTR_DT" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUCT_EXP_BYDT_HIST_NO" DataTypeName="long" Description="">
+        <Distribution GenerationMethod="Random"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="YYMM" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUCT_DTTM" DataTypeName="timestamp" Description="">
+        <Distribution GenerationMethod="Random"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUST_NO" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="ENTR_NO" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="PROD_CD" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="PROD_NM" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="PP_CD" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="PP_NM" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="TRM_CD" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="DSP_TRM_NM" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUCT_DATA_SPCE_CD" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUCT_DATA_SPCE_NM" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUCT_KD_CD" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUCT_KD_NM" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUCT_CHNL_KD_SRC_CDV" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUCT_CHNL_KD_NM" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUCT_CHNL_DIVS_CDV" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUCT_CHNL_DIVS_NM" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUCT_CHNL_DETL_CDV" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUCT_CHNL_DETL_NM" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUST_CNSL_DIVS_CDV" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUST_CNSL_DIVS_NM" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUST_CNSL_KD_CDV" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUST_CNSL_KD_NM" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUST_CNSL_MEMO_CNTN1" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUST_CNSL_MEMO_CNTN10" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="SYS_CREATION_DATE" DataTypeName="timestamp" Description="">
+        <Distribution GenerationMethod="Random"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="SYS_UPDATE_DATE" DataTypeName="timestamp" Description="">
+        <Distribution GenerationMethod="Random"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="OPERATOR_ID" DataTypeName="long" Description="">
+        <Distribution GenerationMethod="Random"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="APPLICATION_ID" DataTypeName="string" Description="">
+        <Distribution GenerationMethod="RandomString"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="CUST_GRP_NO" DataTypeName="long" Description="">
+        <Distribution GenerationMethod="Random"/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="EventArrivalTS" DataTypeName="timestamp" Description="">
+        <Distribution GenerationMethod="Random"/>
+        <DataSourceMapping/>
+      </Fields>
+    </Schema>
+  </SimStreams>
+</sbfs:Simulation>

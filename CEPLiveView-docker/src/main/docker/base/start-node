@@ -1,0 +1,54 @@
+#!/bin/sh
+#
+# script to start node inside docker container
+#
+# Requires :
+#
+#   PRODUCT_HOME    the location of the StreamBase installation
+#   RUNTIME_HOME    the location of nodes, application and configuration
+#   NODENAME        the node name to use
+#
+# Optionally :
+#
+#   NODEDEPLOY      path of node deploy configuration file (default is to use application archive)
+#   SUBSTITUTIONS   substitution parameters (default is none)
+
+if [  "${NODENAME}" == "" ]
+then
+	echo "NODENAME is not set, use --env to set on the docker command line"
+	exit 1
+fi
+
+#
+# create install node arguments
+#
+args="--application=$(ls -1 ${RUNTIME_HOME}/application/*.zip)"
+if [ "${NODEDEPLOY}" != "" ]
+then
+    args="${args} --nodedeploy=${NODEDEPLOY}"
+fi
+if [ "${SUBSTITUTIONS}" != "" ]
+then
+    args="${args} --substitutions=${SUBSTITUTIONS}"
+fi
+
+#
+# clean up from any previous run
+#
+rm -rf ${RUNTIME_HOME}/node/${NODENAME}
+
+#
+# install and start nodes
+#
+epadmin install node \
+    --adminport=2000 \
+    --nodename=${NODENAME} \
+    --nodedirectory=${RUNTIME_HOME}/node \
+    ${args}
+epadmin --servicename=${NODENAME} start node
+
+#
+# indicate that we've started and wait
+#
+echo "COMMAND FINISHED"
+sleep infinity

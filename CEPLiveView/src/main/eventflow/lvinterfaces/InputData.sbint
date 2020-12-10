@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application version="10.5.0_ccb32e4ca924f05a0d59933f58d9d573d97e7fa1">
+    <annotations>
+        <annotation name="hygienic"/>
+    </annotations>
+    <type-metadata>
+        <param name="type" value="interface"/>
+        <param name="fully-qualified-name" value="lvinterfaces.InputData"/>
+    </type-metadata>
+    <memory-model-settings/>
+    <named-schemas>
+        <schema name="Diff">
+            <field name="APP_NAME" type="string"/>
+            <field name="CUCT_EXP_EXTR_DT" type="string"/>
+            <field name="CUCT_EXP_BYDT_HIST_NO" type="long"/>
+            <field name="YYMM" type="string"/>
+            <field name="CUCT_DTTM" type="timestamp"/>
+            <field name="PROD_CD" type="string"/>
+            <field name="PROD_NM" type="string"/>
+            <field name="PP_CD" type="string"/>
+            <field name="PP_NM" type="string"/>
+            <field name="TRM_CD" type="string"/>
+            <field name="DSP_TRM_NM" type="string"/>
+            <field name="CUCT_CHNL_DETL_CDV" type="string"/>
+            <field name="CUCT_CHNL_DETL_NM" type="string"/>
+            <field name="CUST_CNSL_DIVS_CDV" type="string"/>
+            <field name="CUST_CNSL_DIVS_NM" type="string"/>
+            <field name="CUST_CNSL_KD_CDV" type="string"/>
+            <field name="CUST_CNSL_KD_NM" type="string"/>
+            <field name="CUST_CNSL_MEMO_CNTN" type="string"/>
+            <field name="CUCT_EXP_CNTN1" type="string"/>
+            <field name="SYS_CREATION_DATE" type="timestamp"/>
+            <field name="SYS_UPDATE_DATE" type="timestamp"/>
+            <field name="EventArrivalTS" type="timestamp"/>
+        </schema>
+        <schema name="OutputData">
+            <field name="MEMO_CRTE_DTTM" type="string"/>
+            <field name="CUST_NO" type="string"/>
+            <field name="ENTR_NO" type="string"/>
+            <field name="ORG_KD_CD" type="string"/>
+            <field name="BIZBR_NM" type="string"/>
+            <field name="MEMO_KD_CD" type="string"/>
+            <field name="MEMO_NM" type="string"/>
+            <field name="USER_MEMO" type="string"/>
+            <field name="SYS_MEMO" type="string"/>
+            <field name="OPERATOR_ID" type="string"/>
+            <field name="APPLICATION_ID" type="string"/>
+            <field name="CUST_MEMO_NO" type="string"/>
+            <field name="ORG_DV_CD" type="string"/>
+            <field name="USER_DV_CD" type="string"/>
+            <field name="CUST_GRP_NO" type="string"/>
+            <field name="CUCT_DATA_SRCE_CD" type="string"/>
+            <field name="CUCT_DATA_SRCE_NM" type="string"/>
+            <field name="CUCT_KD_CD" type="string"/>
+            <field name="CUCT_KD_NM" type="string"/>
+            <field name="CUCT_CHNL_KD_SRC_CDV" type="string"/>
+            <field name="CUCT_CHNL_KD_NM" type="string"/>
+            <field name="CUCT_CHNL_DIVS_CDV" type="string"/>
+            <field name="CUCT_CHNL_DIVS_NM" type="string"/>
+            <field name="CUCT_EXP_CNTN10" type="string"/>
+        </schema>
+    </named-schemas>
+    <dynamic-variables/>
+</application>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application version="10.5.0_ccb32e4ca924f05a0d59933f58d9d573d97e7fa1">
+    <gui.metadata>
+        <property name="description" value="This is a generated file, do not edit. It defines the named schemas for the TB_CUST_CONT_HIST LiveView table."/>
+    </gui.metadata>
+    <annotations>
+        <annotation name="hygienic"/>
+    </annotations>
+    <type-metadata>
+        <param name="type" value="interface"/>
+        <param name="fully-qualified-name" value="lvinterfaces.TB_CUST_CONT_HISTSchemas"/>
+    </type-metadata>
+    <memory-model-settings/>
+    <named-schemas>
+        <schema name="TB_CUST_CONT_HISTDataInSchema">
+            <field description="A unique identifier for each publisher" name="PublisherID" type="string"/>
+            <field description="A monotonically increasing sequence number wrt each PublisherID" name="PublisherSN" type="long"/>
+            <field description="An internal reference count. Zero means deleted." name="CQSReferredCount" type="long"/>
+            <field description="RFU. Should be null." name="CQSDataUpdatePredicate" type="string"/>
+            <field description="When set to true, means delete operation." name="CQSDelete" type="bool"/>
+            <field name="APP_NAME" type="string"/>
+            <field name="CUCT_EXP_EXTR_DT" type="string"/>
+            <field name="CUCT_EXP_BYDT_HIST_NO" type="long"/>
+            <field name="YYMM" type="string"/>
+            <field name="CUCT_DTTM" type="timestamp"/>
+            <field name="CUST_NO" type="long"/>
+            <field name="ENTR_NO" type="long"/>
+            <field name="PROD_CD" type="string"/>
+            <field name="PROD_NM" type="string"/>
+            <field name="PP_CD" type="string"/>
+            <field name="PP_NM" type="string"/>
+            <field name="TRM_CD" type="string"/>
+            <field name="DSP_TRM_NM" type="string"/>
+            <field name="CUCT_DATA_SRCE_CD" type="string"/>
+            <field name="CUCT_DATA_SRCE_NM" type="string"/>
+            <field name="CUCT_KD_CD" type="string"/>
+            <field name="CUCT_KD_NM" type="string"/>
+            <field name="CUCT_CHNL_KD_SRC_CDV" type="string"/>
+            <field name="CUCT_CHNL_KD_NM" type="string"/>
+            <field name="CUCT_CHNL_DIVS_CDV" type="string"/>
+            <field name="CUCT_CHNL_DIVS_NM" type="string"/>
+            <field name="CUCT_CHNL_DETL_CDV" type="string"/>
+            <field name="CUCT_CHNL_DETL_NM" type="string"/>
+            <field name="CUST_CNSL_DIVS_CDV" type="string"/>
+            <field name="CUST_CNSL_DIVS_NM" type="string"/>
+            <field name="CUST_CNSL_KD_CDV" type="string"/>
+            <field name="CUST_CNSL_KD_NM" type="string"/>
+            <field name="CUST_CNSL_MEMO_CNTN" type="string"/>
+            <field name="CUCT_EXP_CNTN1" type="string"/>
+            <field name="CUCT_EXP_CNTN10" type="string"/>
+            <field name="SYS_CREATION_DATE" type="timestamp"/>
+            <field name="SYS_UPDATE_DATE" type="timestamp"/>
+            <field name="OPERATOR_ID" type="long"/>
+            <field name="APPLICATION_ID" type="string"/>
+            <field name="CUST_GRP_NO" type="long"/>
+            <field name="EventArrivalTS" type="timestamp"/>
+        </schema>
+        <schema name="TB_CUST_CONT_HISTDataOutSchema">
+            <field description="A unique identifier for each publisher" name="PublisherID" type="string"/>
+            <field description="A monotonically increasing sequence number wrt each PublisherID" name="PublisherSN" type="long"/>
+            <field description="An internal reference count. Zero means deleted." name="CQSReferredCount" type="long"/>
+            <field name="APP_NAME" type="string"/>
+            <field name="CUCT_EXP_EXTR_DT" type="string"/>
+            <field name="CUCT_EXP_BYDT_HIST_NO" type="long"/>
+            <field name="YYMM" type="string"/>
+            <field name="CUCT_DTTM" type="timestamp"/>
+            <field name="CUST_NO" type="string"/>
+            <field name="ENTR_NO" type="string"/>
+            <field name="PROD_CD" type="string"/>
+            <field name="PROD_NM" type="string"/>
+            <field name="PP_CD" type="string"/>
+            <field name="PP_NM" type="string"/>
+            <field name="TRM_CD" type="string"/>
+            <field name="DSP_TRM_NM" type="string"/>
+            <field name="CUCT_DATA_SPCE_CD" type="string"/>
+            <field name="CUCT_DATA_SPCE_NM" type="string"/>
+            <field name="CUCT_KD_CD" type="string"/>
+            <field name="CUCT_KD_NM" type="string"/>
+            <field name="CUCT_CHNL_KD_SRC_CDV" type="string"/>
+            <field name="CUCT_CHNL_KD_NM" type="string"/>
+            <field name="CUCT_CHNL_DIVS_CDV" type="string"/>
+            <field name="CUCT_CHNL_DIVS_NM" type="string"/>
+            <field name="CUCT_CHNL_DETL_CDV" type="string"/>
+            <field name="CUCT_CHNL_DETL_NM" type="string"/>
+            <field name="CUST_CNSL_DIVS_CDV" type="string"/>
+            <field name="CUST_CNSL_DIVS_NM" type="string"/>
+            <field name="CUST_CNSL_KD_CDV" type="string"/>
+            <field name="CUST_CNSL_KD_NM" type="string"/>
+            <field name="CUST_CNSL_MEMO_CNTN1" type="string"/>
+            <field name="CUST_CNSL_MEMO_CNTN10" type="string"/>
+            <field name="SYS_CREATION_DATE" type="timestamp"/>
+            <field name="SYS_UPDATE_DATE" type="timestamp"/>
+            <field name="OPERATOR_ID" type="long"/>
+            <field name="APPLICATION_ID" type="string"/>
+            <field name="CUST_GRP_NO" type="long"/>
+            <field name="EventArrivalTS" type="timestamp"/>
+        </schema>
+        <schema name="TB_CUST_CONT_HISTInputControlFields">
+            <field description="A unique identifier for each publisher" name="PublisherID" type="string"/>
+            <field description="A monotonically increasing sequence number wrt each PublisherID" name="PublisherSN" type="long"/>
+            <field description="An internal reference count. Zero means deleted." name="CQSReferredCount" type="long"/>
+            <field description="RFU. Should be null." name="CQSDataUpdatePredicate" type="string"/>
+            <field description="When set to true, means delete operation." name="CQSDelete" type="bool"/>
+        </schema>
+        <schema name="TB_CUST_CONT_HISTTableSchema">
+            <field name="APP_NAME" type="string"/>
+            <field name="CUCT_EXP_EXTR_DT" type="string"/>
+            <field name="CUCT_EXP_BYDT_HIST_NO" type="long"/>
+            <field name="YYMM" type="string"/>
+            <field name="CUCT_DTTM" type="timestamp"/>
+            <field name="CUST_NO" type="long"/>
+            <field name="ENTR_NO" type="long"/>
+            <field name="PROD_CD" type="string"/>
+            <field name="PROD_NM" type="string"/>
+            <field name="PP_CD" type="string"/>
+            <field name="PP_NM" type="string"/>
+            <field name="TRM_CD" type="string"/>
+            <field name="DSP_TRM_NM" type="string"/>
+            <field name="CUCT_DATA_SRCE_CD" type="string"/>
+            <field name="CUCT_DATA_SRCE_NM" type="string"/>
+            <field name="CUCT_KD_CD" type="string"/>
+            <field name="CUCT_KD_NM" type="string"/>
+            <field name="CUCT_CHNL_KD_SRC_CDV" type="string"/>
+            <field name="CUCT_CHNL_KD_NM" type="string"/>
+            <field name="CUCT_CHNL_DIVS_CDV" type="string"/>
+            <field name="CUCT_CHNL_DIVS_NM" type="string"/>
+            <field name="CUCT_CHNL_DETL_CDV" type="string"/>
+            <field name="CUCT_CHNL_DETL_NM" type="string"/>
+            <field name="CUST_CNSL_DIVS_CDV" type="string"/>
+            <field name="CUST_CNSL_DIVS_NM" type="string"/>
+            <field name="CUST_CNSL_KD_CDV" type="string"/>
+            <field name="CUST_CNSL_KD_NM" type="string"/>
+            <field name="CUST_CNSL_MEMO_CNTN" type="string"/>
+            <field name="CUCT_EXP_CNTN1" type="string"/>
+            <field name="CUCT_EXP_CNTN10" type="string"/>
+            <field name="SYS_CREATION_DATE" type="timestamp"/>
+            <field name="SYS_UPDATE_DATE" type="timestamp"/>
+            <field name="OPERATOR_ID" type="long"/>
+            <field name="APPLICATION_ID" type="string"/>
+            <field name="CUST_GRP_NO" type="long"/>
+            <field name="EventArrivalTS" type="timestamp"/>
+        </schema>
+    </named-schemas>
+    <dynamic-variables/>
+</application>

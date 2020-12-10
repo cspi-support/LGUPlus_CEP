@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ASCII"?>
+<liveview-configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.streambase.com/schemas/lvconf/">
+  <data-table id="TB_CUST_CONT_HIST">
+    <fields>
+      <field name="APP_NAME" type="string"/>
+      <field name="CUCT_EXP_EXTR_DT" type="string"/>
+      <field name="CUCT_EXP_BYDT_HIST_NO" type="long"/>
+      <field name="YYMM" type="string"/>
+      <field name="CUCT_DTTM" type="timestamp"/>
+      <field name="CUST_NO" type="string"/>
+      <field name="ENTR_NO" type="string"/>
+      <field name="PROD_CD" type="string"/>
+      <field name="PROD_NM" type="string"/>
+      <field name="PP_CD" type="string"/>
+      <field name="PP_NM" type="string"/>
+      <field name="TRM_CD" type="string"/>
+      <field name="DSP_TRM_NM" type="string"/>
+      <field name="CUCT_DATA_SPCE_CD" type="string"/>
+      <field name="CUCT_DATA_SPCE_NM" type="string"/>
+      <field name="CUCT_KD_CD" type="string"/>
+      <field name="CUCT_KD_NM" type="string"/>
+      <field name="CUCT_CHNL_KD_SRC_CDV" type="string"/>
+      <field name="CUCT_CHNL_KD_NM" type="string"/>
+      <field name="CUCT_CHNL_DIVS_CDV" type="string"/>
+      <field name="CUCT_CHNL_DIVS_NM" type="string"/>
+      <field name="CUCT_CHNL_DETL_CDV" type="string"/>
+      <field name="CUCT_CHNL_DETL_NM" type="string"/>
+      <field name="CUST_CNSL_DIVS_CDV" type="string"/>
+      <field name="CUST_CNSL_DIVS_NM" type="string"/>
+      <field name="CUST_CNSL_KD_CDV" type="string"/>
+      <field name="CUST_CNSL_KD_NM" type="string"/>
+      <field name="CUST_CNSL_MEMO_CNTN" type="string"/>
+      <field name="CUCT_CNSL_MEMO_CNTN1" type="string"/>
+      <field name="CUCT_CNSL_MEMO_CNTN10" type="string"/>
+      <field name="SYS_CREATION_DATE" type="timestamp"/>
+      <field name="SYS_UPDATE_DATE" type="timestamp"/>
+      <field name="OPERATOR_ID" type="long"/>
+      <field name="APPLICATION_ID" type="string"/>
+      <field name="CUST_GRP_NO" type="long"/>
+      <field name="EventArrivalTS" type="timestamp"/>
+    </fields>
+    <table-delete-rule>WHEN EventArrivalTS BETWEEN epoch() AND now()-minutes(30)</table-delete-rule>
+    <primary-key>
+      <field ref="CUCT_EXP_EXTR_DT"/>
+      <field ref="CUCT_EXP_BYDT_HIST_NO"/>
+      <field ref="YYMM"/>
+      <field ref="APP_NAME"/>
+    </primary-key>
+    <indices>
+      <index>
+        <field ref="EventArrivalTS"/>
+      </index>
+    </indices>
+    <field-rules>
+      <rule description="Retention policy table delete rule">
+        <default>
+          <insert field="EventArrivalTS">now()</insert>
+          <update field="EventArrivalTS">now()</update>
+        </default>
+      </rule>
+    </field-rules>
+  </data-table>
+</liveview-configuration>

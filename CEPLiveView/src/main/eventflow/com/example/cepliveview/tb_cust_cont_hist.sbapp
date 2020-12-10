@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modify version="10.5.0_ccb32e4ca924f05a0d59933f58d9d573d97e7fa1">
+    <add>
+        <annotations>
+            <annotation name="hygienic"/>
+        </annotations>
+        <type-metadata>
+            <param name="type" value="module"/>
+            <param name="fully-qualified-name" value="com.example.cepliveview.tb_cust_cont_hist"/>
+        </type-metadata>
+        <memory-model-settings/>
+        <implements module-reference="lvinterfaces.TB_CUST_CONT_HISTDataSource"/>
+        <import from="lvinterfaces.InputData"/>
+        <import from="lvinterfaces.TB_CUST_CONT_HISTDataSource"/>
+        <import alias="TB_CUST_CONT_HISTDataInSchema" from="lvinterfaces.TB_CUST_CONT_HISTSchemas" item="TB_CUST_CONT_HISTDataInSchema"/>
+        <import alias="TB_CUST_CONT_HISTInputControlFields" from="lvinterfaces.TB_CUST_CONT_HISTSchemas" item="TB_CUST_CONT_HISTInputControlFields"/>
+        <dynamic-variables/>
+        <box name="InputAdapter" type="inputadapter">
+            <output port="1" stream="out:InputAdapter_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.sbd2sbdinput.SBD2SBDInput"/>
+            <param name="AuthnType" value="No authentication"/>
+            <param name="CaptureStrategy" value="FLATTEN"/>
+            <param name="ConnectOnInit" value="true"/>
+            <param name="EnableControlPort" value="false"/>
+            <param name="EnableEventPort" value="false"/>
+            <param name="ExplicitURI" value=""/>
+            <param name="FilterExpression" value=""/>
+            <param name="FilterExpression1" value=""/>
+            <param name="FilterExpression2" value=""/>
+            <param name="FilterExpression3" value=""/>
+            <param name="FilterExpression4" value=""/>
+            <param name="FilterExpression5" value=""/>
+            <param name="FilterExpression6" value=""/>
+            <param name="FilterExpression7" value=""/>
+            <param name="FilterExpression8" value=""/>
+            <param name="FilterExpression9" value=""/>
+            <param name="Keystore" value=""/>
+            <param name="LowLatency" value="false"/>
+            <param name="Password" value=""/>
+            <param name="ReconnectInterval" value="5"/>
+            <param name="Schema" value="OutputData"/>
+            <param name="Schema1" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="Schema2" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="Schema3" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="Schema4" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="Schema5" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="Schema6" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="Schema7" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="Schema8" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="Schema9" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="SchemaMatching" value="Match field names"/>
+            <param name="UpStreamContainer" value="default"/>
+            <param name="UpStreamHost" value="localhost"/>
+            <param name="UpStreamPort" value="10000"/>
+            <param name="UpStreamStream" value="SB2SBOutput"/>
+            <param name="UpStreamStream1" value=""/>
+            <param name="UpStreamStream2" value=""/>
+            <param name="UpStreamStream3" value=""/>
+            <param name="UpStreamStream4" value=""/>
+            <param name="UpStreamStream5" value=""/>
+            <param name="UpStreamStream6" value=""/>
+            <param name="UpStreamStream7" value=""/>
+            <param name="UpStreamStream8" value=""/>
+            <param name="UpStreamStream9" value=""/>
+            <param name="UserName" value=""/>
+            <param name="logLevel" value="INFO"/>
+            <param name="useSSL" value="false"/>
+        </box>
+        <box name="Sequence" type="seqnum">
+            <input port="1" stream="out:InputAdapter_1"/>
+            <output port="1" stream="out:Sequence_1"/>
+            <param name="output-field" value="seq"/>
+            <param name="sequence-id" value="sequenceid"/>
+            <param name="update-expression" value="sequenceid + 1"/>
+        </box>
+        <box name="Mapper" type="map">
+            <property name="description" value="Adds default values for all LiveView control fields.&#13;&#10;The app can use these fields to support udpate/delete rules,&#13;&#10;or table persistence."/>
+            <input port="1" stream="out:Sequence_1"/>
+            <output port="1" stream="DataOut"/>
+            <target-list>
+                <item name="input" selection="all">
+                    <remove field="MEMO_CRTE_DTTM"/>
+                    <remove field="ORG_KD_CD"/>
+                    <remove field="BIZBR_NM"/>
+                    <remove field="MEMO_KD_CD"/>
+                    <remove field="MEMO_NM"/>
+                    <remove field="USER_MEMO"/>
+                    <remove field="SYS_MEMO"/>
+                    <remove field="CUST_MEMO_NO"/>
+                    <remove field="ORG_DV_CD"/>
+                    <remove field="USER_DV_CD"/>
+                    <replace field="CUST_NO">long(CUST_NO)</replace>
+                    <replace field="ENTR_NO">long(ENTR_NO)</replace>
+                    <replace field="OPERATOR_ID">long(OPERATOR_ID)</replace>
+                    <replace field="CUST_GRP_NO">long(CUST_GRP_NO)</replace>
+                </item>
+                <expressions>
+                    <include field="*">Diff().*</include>
+                    <include field="*">TB_CUST_CONT_HISTInputControlFields().*</include>
+                    <replace field="PublisherSN">seq</replace>
+                    <remove field="seq"/>
+                </expressions>
+            </target-list>
+        </box>
+        <output-stream name="DataOut" schema="TB_CUST_CONT_HISTDataInSchema" scope="public"/>
+    </add>
+</modify>

@@ -1,3 +1,4 @@
 *.projetc
 *.md
 *.settings
+/target/

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modify version="10.5.0_ccb32e4ca924f05a0d59933f58d9d573d97e7fa1">
+    <add>
+        <annotations>
+            <annotation name="hygienic"/>
+        </annotations>
+        <type-metadata>
+            <param name="type" value="module"/>
+            <param name="fully-qualified-name" value="com.example.cepapplication.SBApplication"/>
+        </type-metadata>
+        <memory-model-settings/>
+        <dynamic-variables/>
+        <box name="InputAdapter" type="inputadapter">
+            <output port="1" stream="out:InputAdapter_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.sbd2sbdinput.SBD2SBDInput"/>
+            <param name="AuthnType" value="No authentication"/>
+            <param name="CaptureStrategy" value="FLATTEN"/>
+            <param name="ConnectOnInit" value="true"/>
+            <param name="EnableControlPort" value="false"/>
+            <param name="EnableEventPort" value="false"/>
+            <param name="ExplicitURI" value=""/>
+            <param name="FilterExpression" value=""/>
+            <param name="FilterExpression1" value=""/>
+            <param name="FilterExpression2" value=""/>
+            <param name="FilterExpression3" value=""/>
+            <param name="FilterExpression4" value=""/>
+            <param name="FilterExpression5" value=""/>
+            <param name="FilterExpression6" value=""/>
+            <param name="FilterExpression7" value=""/>
+            <param name="FilterExpression8" value=""/>
+            <param name="FilterExpression9" value=""/>
+            <param name="Keystore" value=""/>
+            <param name="LowLatency" value="false"/>
+            <param name="Password" value=""/>
+            <param name="ReconnectInterval" value="5"/>
+            <param name="Schema" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema&gt;&#13;&#10;    &lt;field name=&quot;time&quot; type=&quot;timestamp&quot;/&gt;&#13;&#10;    &lt;field name=&quot;seq&quot; type=&quot;long&quot;/&gt;&#13;&#10;&lt;/schema&gt;&#13;&#10;"/>
+            <param name="Schema1" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="Schema2" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="Schema3" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="Schema4" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="Schema5" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="Schema6" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="Schema7" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="Schema8" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="Schema9" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="SchemaMatching" value="Match field names"/>
+            <param name="UpStreamContainer" value="default"/>
+            <param name="UpStreamHost" value="${service-name}"/>
+            <param name="UpStreamPort" value="10000"/>
+            <param name="UpStreamStream" value="OutputStream"/>
+            <param name="UpStreamStream1" value=""/>
+            <param name="UpStreamStream2" value=""/>
+            <param name="UpStreamStream3" value=""/>
+            <param name="UpStreamStream4" value=""/>
+            <param name="UpStreamStream5" value=""/>
+            <param name="UpStreamStream6" value=""/>
+            <param name="UpStreamStream7" value=""/>
+            <param name="UpStreamStream8" value=""/>
+            <param name="UpStreamStream9" value=""/>
+            <param name="UserName" value=""/>
+            <param name="logLevel" value="INFO"/>
+            <param name="useSSL" value="false"/>
+        </box>
+        <box name="Split" type="split">
+            <input port="1" stream="out:InputAdapter_1"/>
+            <output port="1" stream="OutputStream"/>
+            <output port="2" stream="out:Split_2"/>
+            <param name="output-count" value="2"/>
+        </box>
+        <output-stream name="OutputStream"/>
+        <box name="OutputAdapter" type="outputadapter">
+            <input port="1" stream="out:Split_2"/>
+            <output port="1" stream="out:OutputAdapter_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.logger.Log"/>
+            <param name="CaptureStrategy" value="FLATTEN"/>
+        </box>
+    </add>
+</modify>

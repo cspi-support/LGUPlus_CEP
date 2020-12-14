@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><application-layout>
-    <component name="InputAdapter">
-        <param name="gui:x" value="-505"/>
+    <component name="InputStream">
+        <param name="gui:x" value="-514"/>
         <param name="gui:y" value="-41"/>
+    </component>
+    <component name="InputAdapter">
+        <param name="gui:x" value="-573"/>
+        <param name="gui:y" value="-156"/>
     </component>
     <component name="OutputAdapter">
         <param name="gui:x" value="-217"/>

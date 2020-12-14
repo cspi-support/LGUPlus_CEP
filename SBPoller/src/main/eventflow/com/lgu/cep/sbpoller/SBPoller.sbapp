@@ -64,7 +64,7 @@
             <param name="CaptureStrategy" value="FLATTEN"/>
             <param name="ConnectOnInit" value="true"/>
             <param name="DownStreamContainer" value="default"/>
-            <param name="DownStreamHost" value="cep-service"/>
+            <param name="DownStreamHost" value="localhost"/>
             <param name="DownStreamPort" value="10000"/>
             <param name="DownStreamStream" value="InputStream"/>
             <param name="EnableControlPort" value="false"/>

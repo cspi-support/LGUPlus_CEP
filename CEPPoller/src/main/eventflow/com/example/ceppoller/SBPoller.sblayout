@@ -8,6 +8,10 @@
         <param name="gui:y" value="97"/>
         <param name="gui:bends:1" value="-284,87;-275,127"/>
     </component>
+    <component name="OutputAdapter2">
+        <param name="gui:x" value="-239"/>
+        <param name="gui:y" value="-6"/>
+    </component>
     <component name="Sequence">
         <param name="gui:x" value="-437"/>
         <param name="gui:y" value="47"/>
@@ -15,10 +19,5 @@
     <component name="Split">
         <param name="gui:x" value="-354"/>
         <param name="gui:y" value="47"/>
-    </component>
-    <component name="OutputStream">
-        <param name="gui:x" value="-239"/>
-        <param name="gui:y" value="-13"/>
-        <param name="gui:bends:1" value="-273,67;-261,17"/>
     </component>
 </application-layout>

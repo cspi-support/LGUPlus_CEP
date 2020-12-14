@@ -11,7 +11,10 @@
         <memory-model-settings/>
         <dynamic-variables/>
         <stream name="InputStream">
-            <schema/>
+            <schema>
+                <field name="time" type="timestamp"/>
+                <field name="seq" type="long"/>
+            </schema>
         </stream>
         <box disabled="true" name="InputAdapter" type="inputadapter">
             <output port="1" stream="out:InputAdapter_1"/>

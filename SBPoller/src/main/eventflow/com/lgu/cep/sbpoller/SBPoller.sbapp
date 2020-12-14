@@ -29,7 +29,7 @@
             <param name="output-count" value="2"/>
         </box>
         <output-stream name="OutputStream">
-            <param name="connection" value="&quot;sb://cep-service/default:10000&quot;"/>
+            <param name="connection" value="&quot;sb://cep-service:10000&quot;"/>
         </output-stream>
         <box name="OutputAdapter" type="outputadapter">
             <input port="1" stream="out:Split_2"/>

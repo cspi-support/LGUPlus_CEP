@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><application-layout>
+    <component name="InputAdapter">
+        <param name="gui:x" value="-426"/>
+        <param name="gui:y" value="-54"/>
+    </component>
+    <component name="OutputAdapter">
+        <param name="gui:x" value="-176"/>
+        <param name="gui:y" value="-107"/>
+        <param name="gui:bends:1" value="-209,-34;-199,-77"/>
+    </component>
+    <component name="Split">
+        <param name="gui:x" value="-295"/>
+        <param name="gui:y" value="-54"/>
+    </component>
+    <component name="OutputStream">
+        <param name="gui:x" value="-176"/>
+        <param name="gui:y" value="-18"/>
+        <param name="gui:bends:1" value="-220,-14;-214,12"/>
+    </component>
+</application-layout>

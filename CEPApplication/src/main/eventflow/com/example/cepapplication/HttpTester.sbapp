@@ -28,7 +28,7 @@
             <param name="parametersSchema" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
             <param name="parametersTimestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
             <param name="requestDataOutgoingFieldName" value="Data"/>
-            <param name="requestDataSchema" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="requestDataSchema" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema&gt;&#13;&#10;    &lt;field name=&quot;time&quot; type=&quot;timestamp&quot;/&gt;&#13;&#10;    &lt;field name=&quot;seq&quot; type=&quot;double&quot;/&gt;&#13;&#10;&lt;/schema&gt;&#13;&#10;"/>
             <param name="requestDataTransformerContentTypeMap-key.0" value=".*json.*"/>
             <param name="requestDataTransformerContentTypeMap-key.1" value=".*xml.*"/>
             <param name="requestDataTransformerContentTypeMap-key.2" value=".*"/>

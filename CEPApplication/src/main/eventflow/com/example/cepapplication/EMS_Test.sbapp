@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modify version="10.5.0_ccb32e4ca924f05a0d59933f58d9d573d97e7fa1">
+    <add>
+        <annotations>
+            <annotation name="hygienic"/>
+        </annotations>
+        <type-metadata>
+            <param name="type" value="module"/>
+            <param name="fully-qualified-name" value="com.example.cepapplication.EMS_Test"/>
+        </type-metadata>
+        <memory-model-settings/>
+        <dynamic-variables/>
+        <box name="Java" type="java">
+            <output port="1" stream="OutputStream"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.jms2.EMSConsumer"/>
+            <param name="connectOnStartup" value="true"/>
+            <param name="destinationName" value="queue.TextMessageQueue2"/>
+            <param name="destinationType" value="Preconfigured"/>
+            <param name="enableStatusPort" value="false"/>
+            <param name="jmsBodySchema" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema&gt;&#13;&#10;    &lt;field name=&quot;id&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;name&quot; type=&quot;string&quot;/&gt;&#13;&#10;&lt;/schema&gt;&#13;&#10;"/>
+            <param name="jmsPropertiesSchema" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="maxMsgsInFlight" value=""/>
+            <param name="serverName" value="EMS-SERVER"/>
+            <param name="synchronousOperation" value="false"/>
+        </box>
+        <box name="Metronome" type="metronome">
+            <output port="1" stream="out:Metronome_1"/>
+            <param name="interval" value="5"/>
+            <param name="timestamp-field" value="time"/>
+        </box>
+        <output-stream name="OutputStream"/>
+        <box name="Map" type="map">
+            <input port="1" stream="out:Metronome_1"/>
+            <output port="1" stream="out:Map_1"/>
+            <target-list>
+                <item name="input" selection="none"/>
+                <expressions>
+                    <include field="id">'00001'</include>
+                    <include field="name">"kwkim"</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="Java2" type="java">
+            <input port="1" stream="out:Map_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.jms2.EMSProducer"/>
+            <param name="connectOnStartup" value="true"/>
+            <param name="destinationName" value="queue.TextMessageQueue2"/>
+            <param name="destinationType" value="Preconfigured"/>
+            <param name="emitMsgSentTuples" value="false"/>
+            <param name="enableStatusPort" value="false"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="publishNulls" value="false"/>
+            <param name="serverName" value="EMS-SERVER"/>
+        </box>
+    </add>
+</modify>

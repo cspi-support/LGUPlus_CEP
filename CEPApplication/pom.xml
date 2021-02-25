@@ -36,17 +36,17 @@
 		<dependency>
 			<groupId>com.tibco.ep.sb.adapter</groupId>
 			<artifactId>ldm</artifactId>
-			<version>10.6.1</version>
+			<version>10.5.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.tibco.ep.sb.adapter</groupId>
 			<artifactId>webserver</artifactId>
-			<version>10.6.1</version>
+			<version>10.5.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.tibco.ep.sb.adapter</groupId>
 			<artifactId>jms</artifactId>
-			<version>10.6.1</version>
+			<version>10.5.0</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.jms</groupId>

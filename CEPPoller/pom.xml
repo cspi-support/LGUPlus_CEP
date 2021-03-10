@@ -34,7 +34,7 @@
 		<dependency>
 			<groupId>com.tibco.ep.sb.adapter</groupId>
 			<artifactId>ldm</artifactId>
-			<version>10.5.0</version>
+			<version>10.6.1</version>
 		</dependency>
 	</dependencies>
 

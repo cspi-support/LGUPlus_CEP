@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modify version="10.6.1_0a0fdf7f8f3d4f25851d53e0e55c97ce2ece3d22">
+    <add>
+        <annotations>
+            <annotation name="hygienic"/>
+        </annotations>
+        <type-metadata>
+            <param name="type" value="module"/>
+            <param name="fully-qualified-name" value="com.example.test_project.test_import_inf"/>
+        </type-metadata>
+        <memory-model-settings/>
+        <implements module-reference="com.example.test_project.test_inf"/>
+        <import from="com.example.test_project.test_inf"/>
+        <dynamic-variables/>
+        <stream name="InputStream">
+            <schema/>
+        </stream>
+        <box name="Map" type="map">
+            <input port="1" stream="InputStream"/>
+            <output port="1" stream="OutputStream"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <expressions>
+                    <include field="imp_schema">test_named_schema()</include>
+                    <replace field="imp_schema.param1">"1"</replace>
+                    <replace field="imp_schema.param1">"2"</replace>
+                </expressions>
+            </target-list>
+        </box>
+        <output-stream name="OutputStream"/>
+    </add>
+</modify>

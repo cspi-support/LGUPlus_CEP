@@ -37,4 +37,12 @@
         </plugins>
     </build>
 
+    <dependencies>
+    	<dependency>
+    		<groupId>com.example</groupId>
+    		<artifactId>Test_Project</artifactId>
+    		<version>0.0.1-SNAPSHOT</version>
+    		<type>ep-eventflow-fragment</type>
+    	</dependency>
+    </dependencies>
 </project>

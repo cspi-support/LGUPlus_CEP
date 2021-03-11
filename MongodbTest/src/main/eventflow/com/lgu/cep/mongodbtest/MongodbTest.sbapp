@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modify version="10.5.0_ccb32e4ca924f05a0d59933f58d9d573d97e7fa1">
+    <add>
+        <annotations>
+            <annotation name="hygienic"/>
+        </annotations>
+        <type-metadata>
+            <param name="type" value="module"/>
+            <param name="fully-qualified-name" value="com.lgu.cep.mongodbtest.MongodbTest"/>
+        </type-metadata>
+        <memory-model-settings/>
+        <dynamic-variables/>
+        <stream name="InputStream">
+            <schema>
+                <field name="id" type="string"/>
+                <field name="city" type="string"/>
+            </schema>
+        </stream>
+        <stream name="InputStreamCopy">
+            <schema>
+                <field name="id" type="string"/>
+            </schema>
+        </stream>
+        <stream name="InputStreamCopy2">
+            <schema>
+                <field name="id" type="string"/>
+            </schema>
+        </stream>
+        <box name="Map2" type="map">
+            <input port="1" stream="InputStream"/>
+            <output port="1" stream="out:Map2_1"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <expressions>
+                    <include field="jsonTuple">tuple(id, city)</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="Map2Copy" type="map">
+            <input port="1" stream="InputStreamCopy2"/>
+            <output port="1" stream="out:Map2Copy_1"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <expressions>
+                    <include field="jsonTuple">tuple(id)</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="Map2Copy2" type="map">
+            <input port="1" stream="InputStreamCopy"/>
+            <output port="1" stream="out:Map2Copy2_1"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <expressions>
+                    <include field="jsonTuple">tuple(id)</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="Java2Copy" type="java">
+            <input port="1" stream="out:Map2_1"/>
+            <output port="1" stream="out:Java2Copy_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.operator.jsontuple.Tuple2JSON"/>
+            <param name="EnableStatusPort" value="false"/>
+            <param name="encodeSubType" value="Map"/>
+            <param name="includeNullFields" value="false"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="outputFieldName" value="JSON"/>
+            <param name="timestampAsLong" value="false"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+            <param name="tupleField" value="jsonTuple"/>
+        </box>
+        <box name="Java2Copy2" type="java">
+            <input port="1" stream="out:Map2Copy_1"/>
+            <output port="1" stream="out:Java2Copy2_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.operator.jsontuple.Tuple2JSON"/>
+            <param name="EnableStatusPort" value="false"/>
+            <param name="encodeSubType" value="Map"/>
+            <param name="includeNullFields" value="false"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="outputFieldName" value="JSON"/>
+            <param name="timestampAsLong" value="false"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+            <param name="tupleField" value="jsonTuple"/>
+        </box>
+        <box name="Java2Copy3" type="java">
+            <input port="1" stream="out:Map2Copy2_1"/>
+            <output port="1" stream="out:Java2Copy3_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.operator.jsontuple.Tuple2JSON"/>
+            <param name="EnableStatusPort" value="false"/>
+            <param name="encodeSubType" value="Map"/>
+            <param name="includeNullFields" value="false"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="outputFieldName" value="JSON"/>
+            <param name="timestampAsLong" value="false"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+            <param name="tupleField" value="jsonTuple"/>
+        </box>
+        <box name="Map" type="map">
+            <input port="1" stream="out:Java2Copy_1"/>
+            <output port="1" stream="out:Map_1"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <expressions>
+                    <include field="ID">""</include>
+                    <include field="Filter">""</include>
+                    <include field="Collection">"userTable"</include>
+                    <include field="Data">JSON</include>
+                    <include field="DataList">""</include>
+                    <include field="Command">"Insert"</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="MapCopy" type="map">
+            <input port="1" stream="out:Java2Copy3_1"/>
+            <output port="1" stream="out:MapCopy_1"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <expressions>
+                    <include field="ID">""</include>
+                    <include field="Filter">JSON</include>
+                    <include field="Collection">"userTable"</include>
+                    <include field="Data">""</include>
+                    <include field="DataList">""</include>
+                    <include field="Command">"Read"</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="MapCopy2" type="map">
+            <input port="1" stream="out:Java2Copy2_1"/>
+            <output port="1" stream="out:MapCopy2_1"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <expressions>
+                    <include field="ID">""</include>
+                    <include field="Filter">JSON</include>
+                    <include field="Collection">"userTable"</include>
+                    <include field="Data">""</include>
+                    <include field="DataList">""</include>
+                    <include field="Command">"Delete"</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="Java" type="java">
+            <input port="1" stream="out:Map_1"/>
+            <output port="1" stream="OutputStream"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.tibco.sb.mongodb.Mongo"/>
+            <param name="DB" value="PUCS"/>
+            <param name="Url" value="mongodb://localhost:27017"/>
+            <param name="collection" value="input1.Collection"/>
+            <param name="connectionTimeOutMs" value="30000"/>
+            <param name="maxConnPool" value="500"/>
+            <param name="minConnPool" value="100"/>
+            <param name="monitorConnection" value="false"/>
+            <param name="serverSelectionTimeoutMs" value="30000"/>
+            <param name="sharedClient" value="false"/>
+            <param name="socketTimeOutMs" value="30000"/>
+        </box>
+        <box name="JavaCopy" type="java">
+            <input port="1" stream="out:MapCopy_1"/>
+            <output port="1" stream="OutputStream2"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.tibco.sb.mongodb.Mongo"/>
+            <param name="DB" value="default"/>
+            <param name="Url" value="mongodb://localhost:27017"/>
+            <param name="collection" value="input1.Collection"/>
+            <param name="connectionTimeOutMs" value="30000"/>
+            <param name="maxConnPool" value="500"/>
+            <param name="minConnPool" value="100"/>
+            <param name="monitorConnection" value="false"/>
+            <param name="serverSelectionTimeoutMs" value="30000"/>
+            <param name="sharedClient" value="false"/>
+            <param name="socketTimeOutMs" value="30000"/>
+        </box>
+        <box name="JavaCopy2" type="java">
+            <input port="1" stream="out:MapCopy2_1"/>
+            <output port="1" stream="OutputStream3"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.tibco.sb.mongodb.Mongo"/>
+            <param name="DB" value="default"/>
+            <param name="Url" value="mongodb://localhost:27017"/>
+            <param name="collection" value="input1.Collection"/>
+            <param name="connectionTimeOutMs" value="30000"/>
+            <param name="maxConnPool" value="500"/>
+            <param name="minConnPool" value="100"/>
+            <param name="monitorConnection" value="false"/>
+            <param name="serverSelectionTimeoutMs" value="30000"/>
+            <param name="sharedClient" value="false"/>
+            <param name="socketTimeOutMs" value="30000"/>
+        </box>
+        <output-stream name="OutputStream"/>
+        <output-stream name="OutputStream2"/>
+        <output-stream name="OutputStream3"/>
+    </add>
+</modify>

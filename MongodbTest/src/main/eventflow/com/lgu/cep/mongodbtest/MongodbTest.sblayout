@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><application-layout>
+    <component name="InputStream">
+        <param name="gui:x" value="-509"/>
+        <param name="gui:y" value="92"/>
+    </component>
+    <component name="InputStreamCopy">
+        <param name="gui:x" value="-417"/>
+        <param name="gui:y" value="256"/>
+    </component>
+    <component name="InputStreamCopy2">
+        <param name="gui:x" value="-434"/>
+        <param name="gui:y" value="400"/>
+    </component>
+    <component name="Java">
+        <param name="gui:x" value="-48"/>
+        <param name="gui:y" value="89"/>
+        <param name="gui:width" value="65"/>
+        <param name="gui:height" value="65"/>
+        <param name="gui:bends:1" value="-66,122;-66,121"/>
+    </component>
+    <component name="Java2Copy">
+        <param name="gui:x" value="-307"/>
+        <param name="gui:y" value="92"/>
+    </component>
+    <component name="Java2Copy2">
+        <param name="gui:x" value="-209"/>
+        <param name="gui:y" value="400"/>
+    </component>
+    <component name="Java2Copy3">
+        <param name="gui:x" value="-192"/>
+        <param name="gui:y" value="256"/>
+    </component>
+    <component name="JavaCopy">
+        <param name="gui:x" value="63"/>
+        <param name="gui:y" value="253"/>
+        <param name="gui:width" value="65"/>
+        <param name="gui:height" value="65"/>
+        <param name="gui:bends:1" value="34,286;34,285"/>
+    </component>
+    <component name="JavaCopy2">
+        <param name="gui:x" value="43"/>
+        <param name="gui:y" value="398"/>
+        <param name="gui:width" value="65"/>
+        <param name="gui:height" value="65"/>
+    </component>
+    <component name="Map">
+        <param name="gui:x" value="-153"/>
+        <param name="gui:y" value="92"/>
+    </component>
+    <component name="Map2">
+        <param name="gui:x" value="-418"/>
+        <param name="gui:y" value="92"/>
+    </component>
+    <component name="Map2Copy">
+        <param name="gui:x" value="-324"/>
+        <param name="gui:y" value="400"/>
+    </component>
+    <component name="Map2Copy2">
+        <param name="gui:x" value="-307"/>
+        <param name="gui:y" value="256"/>
+    </component>
+    <component name="MapCopy">
+        <param name="gui:x" value="-45"/>
+        <param name="gui:y" value="256"/>
+    </component>
+    <component name="MapCopy2">
+        <param name="gui:x" value="-66"/>
+        <param name="gui:y" value="400"/>
+    </component>
+    <component name="OutputStream">
+        <param name="gui:x" value="54"/>
+        <param name="gui:y" value="92"/>
+        <param name="gui:bends:1" value="30,121;30,122"/>
+    </component>
+    <component name="OutputStream2">
+        <param name="gui:x" value="165"/>
+        <param name="gui:y" value="256"/>
+        <param name="gui:bends:1" value="150,285;150,286"/>
+    </component>
+    <component name="OutputStream3">
+        <param name="gui:x" value="148"/>
+        <param name="gui:y" value="400"/>
+    </component>
+</application-layout>

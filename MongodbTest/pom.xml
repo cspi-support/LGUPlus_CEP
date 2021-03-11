@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- vim: set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab : -->
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.lgu.cep</groupId>
+	<artifactId>MongodbTest</artifactId>
+	<packaging>ep-eventflow-fragment</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>MongodbTest</name>
+	<description>My EventFlow Fragment</description>
+
+
+	<!-- common definitions for this version of StreamBase -->
+	<parent>
+		<groupId>com.tibco.ep.sb.parent</groupId>
+		<artifactId>ep-eventflow-fragment</artifactId>
+		<version>10.6.1</version>
+	</parent>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+    <dependency>
+        <groupId>org.mongodb</groupId>
+        <artifactId>mongodb-driver-sync</artifactId>
+        <version>4.2.0</version>
+    </dependency>
+    </dependencies>
+</project>

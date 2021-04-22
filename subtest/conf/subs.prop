@@ -1,0 +1,1 @@
+PA_URL="mongodb://prophost1:27017,prophost2:27017,prophost3:27017/aaa?authSource=admin"

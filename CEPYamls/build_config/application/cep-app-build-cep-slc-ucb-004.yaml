@@ -1,0 +1,41 @@
+kind: "BuildConfig"
+apiVersion: build.openshift.io/v1
+metadata:
+  name: "sb-app-build-cep-slc-ucb-004" 
+spec:
+  triggers: 
+    - type: "GitHub"
+      github:
+        secret: "secret101"
+    - type: "Generic"
+      generic:
+        secret: "secret101"
+    - type: "ImageChange"
+  source: 
+    type: "Git"
+    git:
+      uri: "http://172.20.45.201/project/ucep/ucep.git"
+    sourceSecret:
+      name: cep-security
+  strategy: 
+    type: "Source"
+    sourceStrategy:
+      env:
+       	- name: FilePath
+          value: SeamlessApplication
+        - name: dockerFilePath
+          value: SeamlessApplication-docker
+        - name: RepoUrl
+          value: http://nexus-ducepa.apps.dprv-paas.lguplus.co.kr/nexus/content/repositories/releases/
+        - name: RepoDir
+          value: /opt/tibco/streambase/m2/repository
+      from:
+        kind: "ImageStreamTag"
+        name: "sbrt-builder:10.6.1"
+        namespace: openshift
+      pullSecret:
+        name: docker-secret        
+  output: 
+    to:
+      kind: "ImageStreamTag"
+      name: "cep-application-cep-slc-ucb-004:0.0.1"

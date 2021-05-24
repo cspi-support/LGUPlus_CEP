@@ -1,0 +1,24 @@
+kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v2beta1
+metadata:
+  name: cep-slc-nts-001-autoscalar
+  namespace: pucepa
+  labels:
+    app: cep-application
+    deployment: cep-application
+    moduleName: cep-slc-nts-001
+spec:
+  scaleTargetRef:
+    kind: DeploymentConfig
+    name: cep-application-cep-slc-nts-001
+  minReplicas: 2
+  maxReplicas: 3
+  metrics:
+    - type: Resource
+      resource:
+        name: mem
+        targetAverageUtilization: 75
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 75

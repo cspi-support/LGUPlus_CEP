@@ -1,0 +1,4 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: cep-application-cep-slc-crm-001

@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: emsprod01
+  namespace: pucepa
+  labels:
+    name: emsprod01
+  annotations:
+    description: Exposes an EMS server listen port both inside and outside the cluster.
+spec:
+  ports:
+    - name: tibemsd-port
+      protocol: TCP
+      port: 30799
+      targetPort: 7222
+      nodePort: 30799
+  selector:
+    name: emsprod01
+  type: NodePort

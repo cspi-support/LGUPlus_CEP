@@ -1,0 +1,74 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    app: cep-poller
+    deployment: cep-poller
+    moduleName: cep-slc-sms-001
+  name: cep-poller-cep-slc-sms-001
+spec:
+  replicas: 0
+  revisionHistoryLimit: 10
+  selector:
+    app: cep-poller
+    deployment: cep-poller
+    moduleName: cep-slc-sms-001
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: cep-poller
+        deployment: cep-poller
+        moduleName: cep-slc-sms-001
+    spec:
+      containers:
+        - env:
+            - name: MY_POD_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              value: pucepa
+            - name: STREAMING_NODENAME
+              value: $(MY_POD_NAME).cep-application
+            - name: STREAMING_SUBSTITUTIONS
+              value: 'moduleName="seamlesspoller.cep-slc-sms-001",fetchSize=2000,polling-interval=5,rownum=1000,ret-polling-interval=300,retry-rownum=1000,serverURL="jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=OFF)(FAILOVER=ON)(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.23.1.15)(PORT=2525)))(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.23.1.16)(PORT=2525)))(CONNECT_DATA=(SERVICE_NAME=PCEPP)))",userName=CEPPAPP,password="ceppapp123!",emsUrl="tcp://emsprod01:30799"'
+          image: docker-registry.default.svc:5000/pucepa/cep-poller-cep-slc-sms-001@sha256:85be6379b9e84cfaa8fa15faf4784c2edb43fb7d3704bbfb32ca28d191929887
+          imagePullPolicy: Always
+          name: cep-poller-cep-slc-sms-001
+          livenessProbe:
+            httpGet:
+              path: /liveness
+              port: 9090
+              scheme: HTTP
+            initialDelaySeconds: 600
+            timeoutSeconds: 10
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          resources:
+            limits:
+              cpu: '0.5'
+              memory: 2Gi
+            requests:
+              cpu: '0.5'
+              memory: 2Gi
+          ports:
+            - containerPort: 10000
+              protocol: TCP
+            - containerPort: 8080
+              protocol: TCP
+          stdin: true
+          tty: true
+      restartPolicy: Always
+  triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+          - cep-poller-cep-slc-sms-001
+        from:
+          kind: ImageStreamTag
+          name: 'cep-poller-cep-slc-sms-001:0.0.1'
+      type: ImageChange

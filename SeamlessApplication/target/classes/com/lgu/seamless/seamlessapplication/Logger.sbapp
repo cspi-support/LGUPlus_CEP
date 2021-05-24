@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modify version="10.6.1_0a0fdf7f8f3d4f25851d53e0e55c97ce2ece3d22">
+    <add>
+        <annotations>
+            <annotation name="hygienic"/>
+        </annotations>
+        <type-metadata>
+            <param name="type" value="module"/>
+            <param name="fully-qualified-name" value="com.lgu.seamless.seamlessapplication.Logger"/>
+        </type-metadata>
+        <memory-model-settings/>
+        <import from="com.lgu.seamless.seamlessapplication.CEPApplicationInf"/>
+        <dynamic-variables/>
+        <error-input-stream name="ErrorInputStream"/>
+        <data name="JDBCTable" type="jdbctable">
+            <param name="connection" value="ORACLE_CEP_LOG"/>
+        </data>
+        <stream name="InputStream" schema="LVTbLogNewSchema"/>
+        <box name="OutputAdapter2" type="outputadapter">
+            <input port="1" stream="ErrorInputStream"/>
+            <output port="1" stream="out:OutputAdapter2_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.logger.Log"/>
+            <param name="CaptureStrategy" value="FLATTEN"/>
+            <param name="asyncEnabled" value="true"/>
+            <param name="compressFrequentMessages" value="false"/>
+            <param name="compressMaxWindowSize" value="5.0"/>
+            <param name="customFormat" value=""/>
+            <param name="customFormatExpression" value=""/>
+            <param name="customFormatType" value="Basic"/>
+            <param name="emitLoggedTuples" value="true"/>
+            <param name="encodeSubType" value="Map"/>
+            <param name="hexEncodeBlobs" value="false"/>
+            <param name="includeNullFields" value="false"/>
+            <param name="logLevel" value="Info"/>
+            <param name="logLevelOverrideFieldName" value=""/>
+            <param name="loggerFormatType" value="CSV"/>
+            <param name="messageIdentifier" value="Logger"/>
+            <param name="messageIdentifierExpression" value=""/>
+            <param name="messageIdentifierType" value="Basic"/>
+            <param name="messagePrefix" value=""/>
+            <param name="moduleQualifiedEventFlowName" value="false"/>
+            <param name="quoteNullStrings" value="true"/>
+            <param name="timestampAsLong" value="false"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+            <param name="verbose" value="false"/>
+        </box>
+        <box name="DecisionTable" type="decision-table">
+            <input port="1" stream="InputStream"/>
+            <output port="1" stream="out:DecisionTable_1"/>
+            <param name="load-from-ams" value="false"/>
+            <param name="use-ads" value="false"/>
+            <param name="ads-required-on-startup" value="false"/>
+            <param name="ams-server-secure-channel" value="false"/>
+            <param name="default-rule-file" value="CEP_APP_INFO_DEC.sbdt"/>
+            <param name="emit-non-matching-tuples" value="false"/>
+            <param name="exclude-rule-from-output-tuple" value="false"/>
+            <schema>
+                <field name="APP_ID" type="string"/>
+                <field name="APP_NAME" type="string"/>
+                <field name="APP_NAME_KO" type="string"/>
+                <field name="CEP_TABLE" type="string"/>
+                <field name="STATUS" type="string"/>
+                <field name="OPERATOR" type="string"/>
+                <field name="DETAIL" type="string"/>
+                <field name="TIME" type="timestamp"/>
+                <field name="KEYS" type="string"/>
+            </schema>
+        </box>
+        <box name="Map" type="map">
+            <input port="1" stream="out:DecisionTable_1"/>
+            <output port="1" stream="out:Map_1"/>
+            <target-list>
+                <item name="input" selection="none"/>
+                <expressions>
+                    <include field="APPL_ID">in.APP_ID</include>
+                    <include field="APPL_NM">action.APP_NAME</include>
+                    <include field="APPL_NM_KO">action.APP_NAME_KO</include>
+                    <include field="CEP_TABLE">action.CEP_TABLE</include>
+                    <include field="STATUS">in.STATUS</include>
+                    <include field="OPERATOR">in.OPERATOR</include>
+                    <include field="ORIGINAL_TUPLE">in.ORIGINAL_TUPLE</include>
+                    <include field="DETAIL">in.DETAIL</include>
+                    <include field="TIME">in.TIME</include>
+                    <include field="KEYS">in.KEYS</include>
+                    <include field="UUID">uuid()</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="Split" type="split">
+            <input port="1" stream="out:Map_1"/>
+            <output port="1" stream="out:Split_1"/>
+            <output port="2" stream="out:Split_2"/>
+            <param name="output-count" value="2"/>
+        </box>
+        <box name="ExistErrCopy" type="filter">
+            <input port="1" stream="out:Split_1"/>
+            <output port="1" stream="out:ExistErrCopy_1"/>
+            <param name="autogen-nomatch-port" value="false"/>
+            <param name="expression.0" value="STATUS == 'E' || STATUS == 'W' || STATUS == 'U'"/>
+        </box>
+        <box name="Java" type="java">
+            <input dispatch="round_robin" port="1" stream="out:Split_2"/>
+            <param name="parallel" value="true"/>
+            <multiplicity number="${multiplicity}" type="concrete"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.jms2.EMSProducer"/>
+            <param name="connectOnStartup" value="true"/>
+            <param name="destinationName" value="Q.STATISTIC"/>
+            <param name="destinationType" value="Preconfigured"/>
+            <param name="emitMsgSentTuples" value="false"/>
+            <param name="enableStatusPort" value="false"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="publishNulls" value="false"/>
+            <param name="serverName" value="EMS-STAT-SERVER"/>
+        </box>
+        <box name="Ins_Cep_logCopy" type="query">
+            <input port="1" stream="out:ExistErrCopy_1"/>
+            <output port="1" stream="out:Ins_Cep_logCopy_1"/>
+            <dataref id="jdbctable" name="JDBCTable"/>
+            <param name="sql" value="INSERT INTO TB_CEP_LOG&#13;&#10;( UUID,&#13;&#10;APPL_ID,&#13;&#10;APPL_NM,&#13;&#10;CEP_TBL_NM,&#13;&#10;SRC_TBL_PK,&#13;&#10;OPRT_NM,&#13;&#10;ORGN_TUPL,&#13;&#10;ERR_DTL,&#13;&#10;CRTE_DT&#13;&#10;)&#13;&#10;VALUES&#13;&#10;(&#13;&#10;{UUID},&#13;&#10;{APPL_ID},&#13;&#10;{APPL_NM},&#13;&#10;{CEP_TABLE},&#13;&#10;{KEYS},&#13;&#10;{OPERATOR},&#13;&#10;{ORIGINAL_TUPLE},&#13;&#10;{DETAIL},&#13;&#10;SYSTIMESTAMP&#13;&#10;)"/>
+            <param name="use-callable-statements" value="false"/>
+            <param name="send-null-tuple" value="false"/>
+            <param name="jdbc-output-column" value="0"/>
+            <target-list>
+                <item name="table" selection="none"/>
+                <item name="input" selection="all"/>
+            </target-list>
+            <param name="result-set" value="query"/>
+            <param name="query-timeout-ms" value="10000"/>
+        </box>
+    </add>
+</modify>

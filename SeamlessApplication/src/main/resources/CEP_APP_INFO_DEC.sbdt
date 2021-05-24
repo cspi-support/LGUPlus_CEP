@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Table:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Table="http:///com/tibco/cep/decision/table/model/DecisionTable.ecore" name="CEP_APP_INFO_DEC.sbdt" folder="src/main/resources">
+  <md>
+    <prop name="Priority" value="5"/>
+  </md>
+  <decisionTable>
+    <rule id="1">
+      <cond id="1_1" colId="1" expr="&quot;cep-slc-ucb-001&quot;"/>
+      <act id="1_2" colId="2" expr="&quot;CustMemoHist&quot;"/>
+      <act id="1_3" colId="3" expr="&quot;TB_SB_CUST_MEMO&quot;"/>
+      <act id="1_4" colId="4" expr="&quot;고객메모이력&quot;"/>
+    </rule>
+    <rule id="2">
+      <cond id="2_1" colId="1" expr="&quot;cep-slc-ucb-002&quot;"/>
+      <act id="2_2" colId="2" expr="&quot;CustRespHist&quot;"/>
+      <act id="2_3" colId="3" expr="&quot;TB_CC_CUST_RSPN_DTL&quot;"/>
+      <act id="2_4" colId="4" expr="&quot;고객응대이력&quot;"/>
+    </rule>
+    <rule id="3">
+      <cond id="3_1" colId="1" expr="&quot;cep-slc-crm-001&quot;"/>
+      <act id="3_2" colId="2" expr="&quot;CmpnRespHist&quot;"/>
+      <act id="3_3" colId="3" expr="&quot;TB_CMCE_CMPN_RSPN_RSLT_H&quot;"/>
+      <act id="3_4" colId="4" expr="&quot;캠페인응답이력&quot;"/>
+    </rule>
+    <rule id="4">
+      <cond id="4_1" colId="1" expr="&quot;cep-slc-nts-001&quot;"/>
+      <act id="4_2" colId="2" expr="&quot;ChnlConsHist&quot;"/>
+      <act id="4_3" colId="3" expr="&quot;TB_EACM_MSG_SEND_REQ_D&quot;"/>
+      <act id="4_4" colId="4" expr="&quot;NTOSS&quot;"/>
+    </rule>
+    <rule id="5">
+      <cond id="5_1" colId="1" expr="&quot;cep-slc-gcp-001&quot;"/>
+      <act id="5_2" colId="2" expr="&quot;ApplResvInfo&quot;"/>
+      <act id="5_3" colId="3" expr="&quot;TB_CHOS_RSV_SALE_M&quot;"/>
+      <act id="5_4" colId="4" expr="&quot;예약신청정보&quot;"/>
+    </rule>
+    <rule id="6">
+      <cond id="6_1" colId="1" expr="&quot;cep-slc-gcp-002&quot;"/>
+      <act id="6_2" colId="2" expr="&quot;SignUpInfo_ONLINE&quot;"/>
+      <act id="6_3" colId="3" expr="&quot;TB_CCCS_ONET_MBL_APPF_M&quot;"/>
+      <act id="6_4" colId="4" expr="&quot;가입신청정보(Ucube)&quot;"/>
+    </rule>
+    <rule id="7">
+      <cond id="7_1" colId="1" expr="&quot;cep-slc-smt-001&quot;"/>
+      <act id="7_2" colId="2" expr="&quot;SmartAdviceInfo&quot;"/>
+      <act id="7_3" colId="3" expr="&quot;TB_SCO_CNSL_DATA_BDP&quot;"/>
+      <act id="7_4" colId="4" expr="&quot;상담저장정보(스마트&quot;"/>
+    </rule>
+    <rule id="8">
+      <cond id="8_1" colId="1" expr="&quot;cep-slc-ucb-003&quot;"/>
+      <act id="8_2" colId="2" expr="&quot;SignUpInfo_UCUBE&quot;"/>
+      <act id="8_3" colId="3" expr="&quot;TB_SB_ENTR_ONLINE_SALE&quot;"/>
+      <act id="8_4" colId="4" expr="&quot;가입신청정보(Ucube)&quot;"/>
+    </rule>
+    <rule id="9">
+      <cond id="9_1" colId="1" expr="&quot;cep-slc-ucb-004&quot;"/>
+      <act id="9_2" colId="2" expr="&quot;UcubeSmsHist&quot;"/>
+      <act id="9_3" colId="3" expr="&quot;TB_CC_SMS_SEND_DTL&quot;"/>
+      <act id="9_4" colId="4" expr="&quot;SMS발송이력(Ucube)&quot;"/>
+    </rule>
+    <rule id="10">
+      <cond id="10_1" colId="1" expr="&quot;cep-slc-sms-001&quot;"/>
+      <act id="10_2" colId="2" expr="&quot;CmpnSmsHist&quot;"/>
+      <act id="10_3" colId="3" expr="&quot;TBL_DELIV_CUST_MM&quot;"/>
+      <act id="10_4" colId="4" expr="&quot;고객대상문자발송(캠페인)(SMS발송이력)&quot;"/>
+    </rule>
+    <rule id="11">
+      <cond id="11_1" colId="1" expr="&quot;cep-slc-uvc-001&quot;"/>
+      <act id="11_2" colId="2" expr="&quot;ChbtLogHist&quot;"/>
+      <act id="11_3" colId="3" expr="&quot;CCO_CHATBOT_DIALOG&quot;"/>
+      <act id="11_4" colId="4" expr="&quot;챗봇문의이력(uVoice)&quot;"/>
+    </rule>
+    <rule id="12">
+      <cond id="12_1" colId="1" expr="&quot;cep-slc-sqm-001&quot;"/>
+      <act id="12_2" colId="2" expr="&quot;SqmsMenuHist&quot;"/>
+      <act id="12_3" colId="3" expr="&quot;&quot;"/>
+      <act id="12_4" colId="4" expr="&quot;SQMS_메뉴사용이력로그&quot;"/>
+    </rule>
+    <rule id="13">
+      <cond id="13_1" colId="1" expr="&quot;cep-slc-has-001&quot;"/>
+      <act id="13_2" colId="2" expr="&quot;WtchARS_HOME&quot;"/>
+      <act id="13_3" colId="3" expr="&quot;WA_DATA_CALL&quot;"/>
+      <act id="13_4" colId="4" expr="&quot;눈으로보는ARS(홈)&quot;"/>
+    </rule>
+    <rule id="14">
+      <cond id="14_1" colId="1" expr="&quot;cep-slc-mas-001&quot;"/>
+      <act id="14_2" colId="2" expr="&quot;WtchARS_Mod&quot;"/>
+      <act id="14_3" colId="3" expr="&quot;M_WA_DATA_CALL&quot;"/>
+      <act id="14_4" colId="4" expr="&quot;눈으로보는ARS(모바일)"/>
+    </rule>
+    <rule id="15">
+      <cond id="15_1" colId="1" expr="&quot;cep-slc-has-002&quot;"/>
+      <act id="15_2" colId="2" expr="&quot;VoiceARS_Home&quot;"/>
+      <act id="15_3" colId="3" expr="&quot;DATA_CALL&quot;"/>
+      <act id="15_4" colId="4" expr="&quot;음성ARS(홈)&quot;"/>
+    </rule>
+    <rule id="16">
+      <cond id="16_1" colId="1" expr="&quot;cep-slc-mas-002&quot;"/>
+      <act id="16_2" colId="2" expr="&quot;VoiceARS_Mod&quot;"/>
+      <act id="16_3" colId="3" expr="&quot;M_DATA_CALL&quot;"/>
+      <act id="16_4" colId="4" expr="&quot;음성ARS(모바일)&quot;"/>
+    </rule>
+    <columns>
+      <column id="1" name="APP_ID" propertyPath="APP_ID" columnType="CONDITION"/>
+      <column id="2" name="APP_NAME" propertyPath="APP_NAME" columnType="ACTION"/>
+      <column id="3" name="CEP_TABLE" propertyPath="CEP_TABLE" columnType="ACTION"/>
+      <column id="4" name="APP_NAME_KO" propertyPath="APP_NAME_KO" columnType="ACTION"/>
+    </columns>
+  </decisionTable>
+</Table:Table>

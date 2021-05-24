@@ -1,0 +1,3 @@
+# SeamlessApplication-docker
+
+My Application

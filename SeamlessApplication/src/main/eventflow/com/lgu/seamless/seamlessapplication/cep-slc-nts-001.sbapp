@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modify version="10.6.1_0a0fdf7f8f3d4f25851d53e0e55c97ce2ece3d22">
+    <add>
+        <annotations>
+            <annotation name="hygienic"/>
+        </annotations>
+        <type-metadata>
+            <param name="type" value="module"/>
+            <param name="fully-qualified-name" value="com.lgu.seamless.seamlessapplication.cep-slc-nts-001"/>
+        </type-metadata>
+        <memory-model-settings/>
+        <import from="com.lgu.seamless.seamlessapplication.CEPApplicationInf"/>
+        <dynamic-variables/>
+        <error-input-stream name="ErrorInputStream"/>
+        <data name="JDBCTable" type="jdbctable">
+            <param name="connection" value="ORACLE_CEP"/>
+        </data>
+        <box name="EMSReceiver" type="java">
+            <output port="1" stream="out:EMSReceiver_1"/>
+            <param name="parallel" value="true"/>
+            <multiplicity number="${multiplicity}" type="concrete"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.jms2.EMSConsumer"/>
+            <param name="connectOnStartup" value="true"/>
+            <param name="destinationName" value="q.slc.nts.001"/>
+            <param name="destinationType" value="Preconfigured"/>
+            <param name="enableStatusPort" value="false"/>
+            <param name="jmsBodySchema" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema&gt;&#13;&#10;    &lt;field name=&quot;MSG_TSMS_STUS_CD&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;MSG_KD_DIVS_CD&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;DATA_INPT_DTTM&quot; type=&quot;timestamp&quot;/&gt;&#13;&#10;    &lt;field name=&quot;DATA_INPS_ID&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;TSMS_REQ_DTTM&quot; type=&quot;timestamp&quot;/&gt;&#13;&#10;    &lt;field name=&quot;CUST_NO&quot; type=&quot;long&quot;/&gt;&#13;&#10;    &lt;field name=&quot;RCPN_HPNO&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;ENTR_NO&quot; type=&quot;long&quot;/&gt;&#13;&#10;    &lt;field name=&quot;CUCT_DATA_SRCE_CD&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;CUCT_DATA_SRCE_NM&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;CUCT_KD_CD&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;CUCT_KD_NM&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;CUCT_CHNL_DIVS_CDV&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;CUCT_CHNL_DIVS_NM&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;CUCT_CHNL_DETL_CDV&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;CUCT_CHNL_DETL_NM&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;MSG_BDY_CNTN&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;MSG_TIT_NM&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;MSG_ID&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;CEP_REPS_CNT&quot; type=&quot;int&quot;/&gt;&#13;&#10;    &lt;field name=&quot;CUCT_LIKG_DIVS_CD&quot; type=&quot;string&quot;/&gt;&#13;&#10;&lt;/schema&gt;&#13;&#10;"/>
+            <param name="jmsPropertiesSchema" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="maxMsgsInFlight" value=""/>
+            <param name="serverName" value="EMS-SERVER"/>
+            <param name="synchronousOperation" value="false"/>
+        </box>
+        <box name="InputAdapter" type="inputadapter">
+            <output port="1" stream="out:InputAdapter_1"/>
+            <param name="parallel" value="true"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.webserver.input.WebServerRequest"/>
+            <param name="CommandField" value="Command"/>
+            <param name="ContextPath" value="/liveness"/>
+            <param name="EnableControlPort" value="false"/>
+            <param name="EnableStatusPort" value="false"/>
+            <param name="FileStoragePath" value=""/>
+            <param name="LogLevel" value="INFO"/>
+            <param name="MultipartFormData" value="false"/>
+            <param name="RequestIdFieldName" value="RequestId"/>
+            <param name="WebSocket" value="false"/>
+            <param name="WebSocketReadDataType" value="String"/>
+            <param name="jsonpCallbackName" value="callback"/>
+            <param name="parametersSchema" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="parametersTimestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+            <param name="requestDataOutgoingFieldName" value="Data"/>
+            <param name="requestDataSchema" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema/&gt;&#13;&#10;"/>
+            <param name="requestDataTransformerContentTypeMap-key.0" value=".*json.*"/>
+            <param name="requestDataTransformerContentTypeMap-key.1" value=".*xml.*"/>
+            <param name="requestDataTransformerContentTypeMap-key.2" value=".*"/>
+            <param name="requestDataTransformerContentTypeMap-value.0" value="com.streambase.sb.adapter.webserver.data.JSONRequestDataTransformer"/>
+            <param name="requestDataTransformerContentTypeMap-value.1" value="com.streambase.sb.adapter.webserver.data.XMLRequestDataTransformer"/>
+            <param name="requestDataTransformerContentTypeMap-value.2" value="com.streambase.sb.adapter.webserver.data.JSONRequestDataTransformer"/>
+            <param name="requestParameterName" value=""/>
+            <param name="webServerConfigElement" value="Web Server Port 9090"/>
+        </box>
+        <box name="Java" type="java">
+            <input port="1" stream="ErrorInputStream"/>
+            <output port="1" stream="out:Java_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.operator.jsontuple.JSON2Tuple"/>
+            <param name="enableLooseParsing" value="true"/>
+            <param name="enablePassThroughFields" value="true"/>
+            <param name="enableStatusPort" value="false"/>
+            <param name="jsonFieldName" value="originalTuple"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="outputSchema" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema&gt;&#13;&#10;    &lt;field name=&quot;MSG_ID&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;TSMS_REQ_DTTM&quot; type=&quot;string&quot;/&gt;&#13;&#10;&lt;/schema&gt;&#13;&#10;"/>
+            <param name="passThroughFieldsFieldName" value="PassThroughFields"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+        </box>
+        <box name="Filter_In_20_30" type="filter">
+            <input port="1" stream="out:EMSReceiver_1"/>
+            <output port="1" stream="out:Filter_In_20_30_1"/>
+            <output port="2" stream="out:Filter_In_20_30_2"/>
+            <param name="autogen-nomatch-port" value="true"/>
+            <param name="expression.0" value="input1.CUCT_LIKG_DIVS_CD == '20' || input1.CUCT_LIKG_DIVS_CD ==  '30'"/>
+            <param name="expression.1" value="true"/>
+        </box>
+        <box name="Map" type="map">
+            <input port="1" stream="out:InputAdapter_1"/>
+            <output port="1" stream="out:Map_1"/>
+            <target-list>
+                <item name="input" selection="all">
+                    <replace field="Data">format_time(now(), "yyyy-MM-dd HH:mm:ss") + "::" +"OK"</replace>
+                </item>
+                <expressions>
+                    <include field="ResponseCode">200</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="UPDATE_CEP_ERROR" type="query">
+            <input dispatch="round_robin" port="1" stream="out:Java_1"/>
+            <output port="1" stream="out:UPDATE_CEP_ERROR_1"/>
+            <error stream="out:UPDATE_CEP_ERROR_2_error"/>
+            <dataref id="jdbctable" name="JDBCTable"/>
+            <multiplicity number="${multiplicity}" type="concrete"/>
+            <param name="sql" value="UPDATE TB_EACM_MSG_SEND_REQ_D&#13;&#10;SET CEP_PRSS_STUS_CD = {CEP_E_FLAG},&#13;&#10;&#9;CEP_UPDATE_DATE = SYSDATE&#13;&#10;WHERE 1=1&#13;&#10;&#9;AND MSG_ID = {MSG_ID}&#13;&#10;&#9;AND TSMS_REQ_DTTM = {TSMS_REQ_DTTM}"/>
+            <param name="use-callable-statements" value="false"/>
+            <param name="send-null-tuple" value="false"/>
+            <param name="jdbc-output-column" value="0"/>
+            <target-list>
+                <item name="table" selection="none"/>
+                <item name="input" selection="all"/>
+            </target-list>
+            <param name="result-set" value="query"/>
+            <param name="query-timeout-ms" value="${jdbc-timeout}"/>
+        </box>
+        <box name="Select_Join_Tables" type="query">
+            <input dispatch="round_robin" port="1" stream="out:Filter_In_20_30_1"/>
+            <output port="1" stream="out:Select_Join_Tables_1"/>
+            <dataref id="jdbctable" name="JDBCTable"/>
+            <param name="parallel" value="true"/>
+            <multiplicity number="${multiplicity}" type="concrete"/>
+            <param name="sql" value="SELECT Y.PROD_CD,&#13;&#10;&#9;&#9; Y.PROD_NO,&#13;&#10;     X.DESCRIPTION AS PROD_NM,&#13;&#10;     MOD(Y.PROD_NO, 100) AS CUCT_GRP_NO,&#13;&#10;     Z.CUCT_EXP_EXTR_DT,&#13;&#10;     Z.CUCT_DTTM,&#13;&#10;     Z.CUST_NO,&#13;&#10;     Z.RCPN_HPNO,&#13;&#10;     Z.ENTR_NO,&#13;&#10;     Z.CUCT_DATA_SRCE_CD,&#13;&#10;     Z.CUCT_DATA_SRCE_NM,&#13;&#10;     Z.CUCT_KD_CD,&#13;&#10;     Z.CUCT_KD_NM,&#13;&#10;     Z.CUCT_CHNL_DIVS_CDV,&#13;&#10;     Z.CUCT_CHNL_DIVS_NM,&#13;&#10;     Z.CUCT_CHNL_DETL_CDV,&#13;&#10;     Z.CUCT_CHNL_DETL_NM,&#13;&#10;     Z.CUST_CNSL_MEMO_CNTN,&#13;&#10;     Z.CUCT_EXP_CNTN4,&#13;&#10;     Z.CUCT_EXP_CNTN6,&#13;&#10;     Z.CUCT_EXP_CNTN10,&#13;&#10;     Z.SYS_CREATION_DATE,&#13;&#10;     Z.OPERATOR_ID,&#13;&#10;     NVL(DECODE(Z.OPERATOR_ID, 99999, 'UCUBE공통', (SELECT A.USER_NM FROM VW_CM_HB_USER A WHERE A.USER_ID = Z.OPERATOR_ID)), 'UCUBE공통') AS USER_NM,&#13;&#10;     Z.MSG_ID,&#13;&#10;     Z.APPLICATION_ID,&#13;&#10;     Z.MSG_KD_DIVS_CD,&#13;&#10;     Z.CMM_CD_NM&#13;&#10;  FROM MTL_SYSTEM_ITEMS_B X,&#13;&#10;      TB_SB_ENTR Y,&#13;&#10;      (&#13;&#10;        SELECT TO_CHAR(SYSDATE, 'YYYYMMDD') AS CUCT_EXP_EXTR_DT&#13;&#10;              ,TSMS_REQ_DTTM AS CUCT_DTTM&#13;&#10;              ,CUST_NO&#13;&#10;              ,RCPN_HPNO&#13;&#10;              ,ENTR_NO&#13;&#10;              ,CUCT_DATA_SRCE_CD&#13;&#10;              ,CUCT_DATA_SRCE_NM&#13;&#10;              ,CUCT_KD_CD&#13;&#10;              ,CUCT_KD_NM&#13;&#10;              ,CUCT_CHNL_DIVS_CDV&#13;&#10;              ,CUCT_CHNL_DIVS_NM&#13;&#10;              ,CUCT_CHNL_DETL_CDV&#13;&#10;              ,CUCT_CHNL_DETL_NM &#13;&#10;&#9;&#9;&#9;  ,MSG_ID&#13;&#10;              ,MSG_BDY_CNTN AS CUST_CNSL_MEMO_CNTN&#13;&#10;              ,MSG_TIT_NM AS CUCT_EXP_CNTN4&#13;&#10;              ,A.MSG_TSMS_STUS_CD AS CUCT_EXP_CNTN6&#13;&#10;&#9;&#9;&#9;  ,A.MSG_KD_DIVS_CD&#13;&#10;&#9;&#9;  &#9;  ,B.CMM_CD_NM&#13;&#10;              ,'[SMS_SEND_SEQNO]=' || MSG_ID AS CUCT_EXP_CNTN10&#13;&#10;              ,A.DATA_INPT_DTTM AS SYS_CREATION_DATE&#13;&#10;              ,D.USER_ID AS OPERATOR_ID&#13;&#10;              ,'SMS_SEND' AS APPLICATION_ID&#13;&#10;          FROM &#13;&#10;               (SELECT &#13;&#10;&#9;&#9;&#9;&#9;{MSG_TSMS_STUS_CD} AS MSG_TSMS_STUS_CD,&#13;&#10;&#9;&#9;&#9;&#9;{MSG_KD_DIVS_CD} AS MSG_KD_DIVS_CD,&#13;&#10;&#9;&#9;&#9;&#9;{DATA_INPT_DTTM} AS DATA_INPT_DTTM,&#13;&#10;&#9;&#9;&#9;&#9;{DATA_INPS_ID} AS DATA_INPS_ID,&#13;&#10;&#9;&#9;&#9;&#9;{TSMS_REQ_DTTM} AS TSMS_REQ_DTTM,&#13;&#10;&#9;&#9;&#9;&#9;{CUST_NO} AS CUST_NO,&#13;&#10;&#9;&#9;&#9;&#9;{RCPN_HPNO} AS RCPN_HPNO,&#13;&#10;&#9;&#9;&#9;&#9;{ENTR_NO} AS ENTR_NO,&#13;&#10;&#9;&#9;&#9;&#9;{CUCT_DATA_SRCE_CD} AS CUCT_DATA_SRCE_CD,&#13;&#10;&#9;&#9;&#9;&#9;{CUCT_DATA_SRCE_NM} AS CUCT_DATA_SRCE_NM,&#13;&#10;&#9;&#9;&#9;&#9;{CUCT_KD_CD} AS CUCT_KD_CD,&#13;&#10;&#9;&#9;&#9;&#9;{CUCT_KD_NM} AS CUCT_KD_NM,&#13;&#10;&#9;&#9;&#9;&#9;{CUCT_CHNL_DIVS_CDV} AS CUCT_CHNL_DIVS_CDV,&#13;&#10;&#9;&#9;&#9;&#9;{CUCT_CHNL_DIVS_NM} AS CUCT_CHNL_DIVS_NM,&#13;&#10;&#9;&#9;&#9;&#9;{CUCT_CHNL_DETL_CDV} AS CUCT_CHNL_DETL_CDV,&#13;&#10;&#9;&#9;&#9;&#9;{CUCT_CHNL_DETL_NM} AS CUCT_CHNL_DETL_NM,&#13;&#10;&#9;&#9;&#9;&#9;{MSG_BDY_CNTN} AS MSG_BDY_CNTN,&#13;&#10;&#9;&#9;&#9;&#9;{MSG_TIT_NM} AS MSG_TIT_NM,&#13;&#10;&#9;&#9;&#9;&#9;{MSG_ID} AS MSG_ID,&#13;&#10;&#9;&#9;&#9;&#9;{CEP_REPS_CNT} AS CEP_REPS_CNT,&#13;&#10;&#9;&#9;&#9;&#9;{CUCT_LIKG_DIVS_CD} AS CUCT_LIKG_DIVS_CD&#13;&#10;&#9;&#9;&#9;   FROM DUAL) A&#13;&#10;              ,TB_EACM_CMM_CD_D B&#13;&#10;              ,TB_EACM_EMP_D C&#13;&#10;              ,VW_CM_HB_USER D&#13;&#10;         WHERE 1=1&#13;&#10;           AND A.MSG_TSMS_STUS_CD = B.CMM_CD(+)&#13;&#10;           AND B.USE_YN(+) = 'Y'&#13;&#10;           AND B.CMM_CD_GRP_ID(+) = 'MSG_TSMS_STUS_CD'&#13;&#10;           AND A.DATA_INPS_ID = C.EMNO(+)&#13;&#10;           AND C.INTG_LGIN_ID = D.INTG_USER_ID(+)&#13;&#10;       ) Z&#13;&#10; WHERE 1=1&#13;&#10;   AND Y.ENTR_NO = Z.ENTR_NO&#13;&#10;   AND Y.HLDR_CUST_NO = Z.CUST_NO&#13;&#10;   AND X.SEGMENT1 =Y.PROD_CD&#13;&#10;   AND Z.ENTR_NO = {ENTR_NO}&#13;&#10;   AND Z.MSG_ID = {MSG_ID}"/>
+            <param name="use-callable-statements" value="false"/>
+            <param name="send-null-tuple" value="true"/>
+            <param name="jdbc-output-column" value="0"/>
+            <target-list>
+                <item name="table" selection="all">
+                    <replace field="CUCT_DATA_SRCE_CD">if isnull(input1.CUCT_DATA_SRCE_CD) then '' else input1.CUCT_DATA_SRCE_CD</replace>
+                    <replace field="CUCT_DATA_SRCE_NM">if isnull(input1.CUCT_DATA_SRCE_NM) then '' else input1.CUCT_DATA_SRCE_NM</replace>
+                    <replace field="CUCT_KD_CD">if isnull(input1.CUCT_KD_CD) then '' else input1.CUCT_KD_CD</replace>
+                    <replace field="CUCT_KD_NM">if isnull(input1.CUCT_KD_NM) then '' else input1.CUCT_KD_NM</replace>
+                    <replace field="CUCT_CHNL_DIVS_CDV">if isnull(input1.CUCT_CHNL_DIVS_CDV) then '' else input1.CUCT_CHNL_DIVS_CDV</replace>
+                    <replace field="CUCT_CHNL_DIVS_NM">if isnull(input1.CUCT_CHNL_DIVS_NM) then '' else input1.CUCT_CHNL_DIVS_NM</replace>
+                    <replace field="CUCT_CHNL_DETL_CDV">if isnull(input1.CUCT_CHNL_DETL_CDV) then '' else input1.CUCT_CHNL_DETL_CDV</replace>
+                    <replace field="CUCT_CHNL_DETL_NM">if isnull(input1.CUCT_CHNL_DETL_NM) then '' else input1.CUCT_CHNL_DETL_NM</replace>
+                </item>
+                <item name="input" selection="none"/>
+                <expressions>
+                    <include field="TSMS_REQ_DTTM">input1.TSMS_REQ_DTTM</include>
+                    <include field="MSG_ID">input1.MSG_ID</include>
+                    <include field="DATA_INPT_DTTM">input1.DATA_INPT_DTTM</include>
+                </expressions>
+            </target-list>
+            <param name="result-set" value="explicit-schema"/>
+            <schema>
+                <field name="PROD_CD" type="string"/>
+                <field name="PROD_NO" type="string"/>
+                <field name="PROD_NM" type="string"/>
+                <field name="CUCT_GRP_NO" type="int"/>
+                <field name="CUCT_EXP_EXTR_DT" type="string"/>
+                <field name="CUCT_DTTM" type="timestamp"/>
+                <field name="CUST_NO" type="long"/>
+                <field name="RCPN_HPNO" type="string"/>
+                <field name="ENTR_NO" type="long"/>
+                <field name="CUCT_DATA_SRCE_CD" type="string"/>
+                <field name="CUCT_DATA_SRCE_NM" type="string"/>
+                <field name="CUCT_KD_CD" type="string"/>
+                <field name="CUCT_KD_NM" type="string"/>
+                <field name="CUCT_CHNL_DIVS_CDV" type="string"/>
+                <field name="CUCT_CHNL_DIVS_NM" type="string"/>
+                <field name="CUCT_CHNL_DETL_CDV" type="string"/>
+                <field name="CUCT_CHNL_DETL_NM" type="string"/>
+                <field name="CUST_CNSL_MEMO_CNTN" type="string"/>
+                <field name="CUCT_EXP_CNTN4" type="string"/>
+                <field name="CUCT_EXP_CNTN6" type="string"/>
+                <field name="CUCT_EXP_CNTN10" type="string"/>
+                <field name="SYS_CREATION_DATE" type="timestamp"/>
+                <field name="OPERATOR_ID" type="long"/>
+                <field name="APPLICATION_ID" type="string"/>
+                <field name="USER_NM" type="string"/>
+                <field name="MSG_KD_DIVS_CD" type="string"/>
+                <field name="CMM_CD_NM" type="string"/>
+            </schema>
+            <param name="query-timeout-ms" value="${jdbc-timeout}"/>
+        </box>
+        <box name="SplitCopy" type="split">
+            <input port="1" stream="out:Map_1"/>
+            <output port="1" stream="out:SplitCopy_1"/>
+            <output port="2" stream="out:SplitCopy_2"/>
+            <param name="output-count" value="2"/>
+        </box>
+        <box name="Union" type="union">
+            <input port="1" stream="out:UPDATE_CEP_ERROR_1"/>
+            <input port="2" stream="out:UPDATE_CEP_ERROR_2_error"/>
+            <output port="1" stream="out:Union_1"/>
+            <param name="strict" value="false"/>
+        </box>
+        <box name="Add_Err_Info" type="map">
+            <input port="1" stream="out:Union_1"/>
+            <output port="1" stream="out:Add_Err_Info_1"/>
+            <target-list>
+                <item name="input" selection="none"/>
+                <expressions>
+                    <include field="APP_ID">cep_slc_nts_001</include>
+                    <include field="STATUS">"E"</include>
+                    <include field="OPERATOR">input1.PassThroughFields.operatorName</include>
+                    <include field="ORIGINAL_TUPLE">input1.PassThroughFields.originalTuple</include>
+                    <include field="DETAIL">input1.PassThroughFields.description</include>
+                    <include field="TIME">now()</include>
+                    <include field="KEYS">"MSG_ID : " + MSG_ID  + " |  TSMS_REQ_DTTM  : "+TSMS_REQ_DTTM</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="Filter_For_Condition" type="filter">
+            <input port="1" stream="out:Select_Join_Tables_1"/>
+            <output port="1" stream="out:Filter_For_Condition_1"/>
+            <output port="2" stream="out:Filter_For_Condition_2"/>
+            <param name="autogen-nomatch-port" value="true"/>
+            <param name="expression.0" value="notnull(input1.ENTR_NO)"/>
+            <param name="expression.1" value="true"/>
+        </box>
+        <box name="OutputAdapter" type="outputadapter">
+            <input port="1" stream="out:SplitCopy_2"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.webserver.output.WebServerResponse"/>
+            <param name="ContentTypeField" value=""/>
+            <param name="CookiesField" value=""/>
+            <param name="DataField" value="Data"/>
+            <param name="HttpHeadersField" value=""/>
+            <param name="LogLevel" value="INFO"/>
+            <param name="RequestIdField" value="RequestId"/>
+            <param name="StatusCodeField" value="ResponseCode"/>
+            <param name="responseDataTransformerAcceptTypeMap-key.0" value=".*json.*"/>
+            <param name="responseDataTransformerAcceptTypeMap-key.1" value=".*xml.*"/>
+            <param name="responseDataTransformerAcceptTypeMap-key.2" value=".*"/>
+            <param name="responseDataTransformerAcceptTypeMap-value.0" value="com.streambase.sb.adapter.webserver.data.JSONResponseDataTransformer"/>
+            <param name="responseDataTransformerAcceptTypeMap-value.1" value="com.streambase.sb.adapter.webserver.data.XMLResponseDataTransformer"/>
+            <param name="responseDataTransformerAcceptTypeMap-value.2" value="com.streambase.sb.adapter.webserver.data.JSONResponseDataTransformer"/>
+        </box>
+        <box name="OutputAdapterCopy" type="outputadapter">
+            <input port="1" stream="out:SplitCopy_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.csvwriter.CSVWriter"/>
+            <param name="AddTimestamp" value="None"/>
+            <param name="CaptureStrategy" value="FLATTEN"/>
+            <param name="Charset" value=""/>
+            <param name="CheckForRollAtStartup" value="false"/>
+            <param name="CompressData" value="false"/>
+            <param name="FieldDelimiter" value=","/>
+            <param name="FileName" value="/opt/app-root/src/liveness.csv"/>
+            <param name="FlushInterval" value="1"/>
+            <param name="IfFileDoesntExist" value="Create new file"/>
+            <param name="IfFileExists" value="Append to existing file"/>
+            <param name="IncludeHeaderInFile" value="true"/>
+            <param name="MaxFileSize" value="0"/>
+            <param name="MaxRollSecs" value="0"/>
+            <param name="NullValueRepresentation" value="null"/>
+            <param name="OpenOutputFileDuringInit" value="false"/>
+            <param name="PassThroughDataToEventPort" value="false"/>
+            <param name="RollHour" value="0"/>
+            <param name="RollMinute" value="0"/>
+            <param name="RollPeriod" value="None"/>
+            <param name="RollSecond" value="0"/>
+            <param name="StartControlPort" value="false"/>
+            <param name="StartEventPort" value="false"/>
+            <param name="StringQuoteCharacter" value="&quot;"/>
+            <param name="StringQuoteOption" value="Quote if necessary"/>
+            <param name="SyncOnFlush" value="false"/>
+            <param name="ThrottleErrorMessages" value="false"/>
+            <param name="TimestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+            <param name="UseDefaultCharset" value="true"/>
+            <param name="logLevel" value="INFO"/>
+        </box>
+        <box name="DecisionTable" type="decision-table">
+            <input port="1" stream="out:Filter_For_Condition_1"/>
+            <output port="1" stream="out:DecisionTable_1"/>
+            <param name="load-from-ams" value="false"/>
+            <param name="use-ads" value="false"/>
+            <param name="ads-required-on-startup" value="false"/>
+            <param name="ams-server-secure-channel" value="false"/>
+            <param name="default-rule-file" value="NTOSS_DEC.sbdt"/>
+            <param name="emit-non-matching-tuples" value="false"/>
+            <param name="exclude-rule-from-output-tuple" value="false"/>
+            <schema>
+                <field name="CUCT_CHNL_KD_SRC_CDV" type="string"/>
+                <field name="CUCT_CHNL_KD_NM" type="string"/>
+                <field name="CUCT_EXP_CNTN7" type="string"/>
+            </schema>
+        </box>
+        <box name="Union3" type="union">
+            <input port="1" stream="out:Filter_For_Condition_2"/>
+            <input port="2" stream="out:Filter_In_20_30_2"/>
+            <output port="1" stream="out:Union3_1"/>
+            <param name="strict" value="false"/>
+        </box>
+        <box name="CombineData" type="map">
+            <input port="1" stream="out:DecisionTable_1"/>
+            <output port="1" stream="out:CombineData_1"/>
+            <target-list>
+                <item name="input" selection="none"/>
+                <expressions>
+                    <include field="TB">TB_CC_CUST_CNTA_EXP_H()</include>
+                    <replace field="TB.CUCT_EXP_EXTR_DT">input1.in.CUCT_EXP_EXTR_DT</replace>
+                    <replace field="TB.CUCT_DTTM">timestamp(format_time(input1.in.CUCT_DTTM, 'yyyy-MM-dd HH:mm:ss'))</replace>
+                    <replace field="TB.CUST_NO">input1.in.CUST_NO</replace>
+                    <replace field="TB.HPNO">input1.in.RCPN_HPNO</replace>
+                    <replace field="TB.ENTR_NO">input1.in.ENTR_NO</replace>
+                    <replace field="TB.PROD_NO">input1.in.PROD_NO</replace>
+                    <replace field="TB.PROD_CD">input1.in.PROD_CD</replace>
+                    <replace field="TB.PROD_NM">input1.in.PROD_NM</replace>
+                    <replace field="TB.CUCT_DATA_SRCE_CD">input1.in.CUCT_DATA_SRCE_CD</replace>
+                    <replace field="TB.CUCT_DATA_SRCE_NM">input1.in.CUCT_DATA_SRCE_NM</replace>
+                    <replace field="TB.CUCT_KD_CD">input1.in.CUCT_KD_CD</replace>
+                    <replace field="TB.CUCT_KD_NM">input1.in.CUCT_KD_NM</replace>
+                    <replace field="TB.CUCT_CHNL_KD_SRC_CDV">input1.action.CUCT_CHNL_KD_SRC_CDV</replace>
+                    <replace field="TB.CUCT_CHNL_KD_NM">input1.action.CUCT_CHNL_KD_NM</replace>
+                    <replace field="TB.CUCT_CHNL_DIVS_CDV">input1.in.CUCT_CHNL_DIVS_CDV</replace>
+                    <replace field="TB.CUCT_CHNL_DIVS_NM">input1.in.CUCT_CHNL_DIVS_NM</replace>
+                    <replace field="TB.CUCT_CHNL_DETL_CDV">input1.in.CUCT_CHNL_DETL_CDV</replace>
+                    <replace field="TB.CUCT_CHNL_DETL_NM">input1.in.CUCT_CHNL_DETL_NM</replace>
+                    <replace field="TB.CUST_CNSL_MEMO_CNTN">replace(replace(input1.in.CUST_CNSL_MEMO_CNTN, '{', ' '), "}", " ")</replace>
+                    <replace field="TB.CUCT_EXP_CNTN4">input1.in.CUCT_EXP_CNTN4</replace>
+                    <replace field="TB.CUCT_EXP_CNTN6">input1.in.CUCT_EXP_CNTN6</replace>
+                    <replace field="TB.CUCT_EXP_CNTN7">input1.action.CUCT_EXP_CNTN7</replace>
+                    <replace field="TB.CUCT_EXP_CNTN10">input1.in.CUCT_EXP_CNTN10</replace>
+                    <replace field="TB.OPERATOR_ID">input1.in.OPERATOR_ID</replace>
+                    <replace field="TB.USER_NM">input1.in.USER_NM</replace>
+                    <replace field="TB.APPLICATION_ID">input1.in.APPLICATION_ID</replace>
+                    <replace field="TB.SYS_CREATION_DATE">timestamp(format_time(input1.in.SYS_CREATION_DATE, 'yyyy-MM-dd HH:mm:ss'))</replace>
+                    <replace field="TB.SYS_UPDATE_DATE">timestamp(format_time(now(), 'yyyy-MM-dd HH:mm:ss'))</replace>
+                    <replace field="TB.CUST_GRP_NO">long(substr(string(input1.in.CUST_NO), strlen(string(input1.in.CUST_NO))-1, 1))</replace>
+                    <include field="CUCT_GRP_NO">input1.in.CUCT_GRP_NO</include>
+                    <include field="MSG_ID">input1.in.MSG_ID</include>
+                    <include field="TSMS_REQ_DTTM">input1.in.TSMS_REQ_DTTM</include>
+                    <include field="MK_CUCT_DTTM">format_time(input1.in.CUCT_DTTM, 'yyyy-MM-dd') + "T" + format_time(input1.in.CUCT_DTTM, 'HH:mm:ss') + "Z"</include>
+                    <include field="JS_CUCT_DTTM">"'CUCT_DTTM': new ISODate('"+(format_time(input1.in.CUCT_DTTM, 'yyyy-MM-dd') + "T" + format_time(input1.in.CUCT_DTTM, 'HH:mm:ss') + "Z")+"')"</include>
+                    <include field="YYMM">format_time(now(), 'yyyyMM')</include>
+                    <include field="CUST_EXP_EXTR_DT">format_time(now(), 'yyyy-MM-dd') + "T" + format_time(now(), 'HH:mm:ss') + "Z"</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="UPDATE_CEP_otherWise" type="query">
+            <input dispatch="round_robin" port="1" stream="out:Union3_1"/>
+            <output port="1" stream="out:UPDATE_CEP_otherWise_1"/>
+            <dataref id="jdbctable" name="JDBCTable"/>
+            <multiplicity number="${multiplicity}" type="concrete"/>
+            <param name="sql" value="UPDATE TB_EACM_MSG_SEND_REQ_D &#13;&#10;SET CEP_PRSS_STUS_CD = {CEP_W_FLAG},&#13;&#10;&#9;CEP_UPDATE_DATE = SYSDATE&#13;&#10;WHERE 1=1&#13;&#10;&#9;AND MSG_ID = {MSG_ID}&#13;&#10;&#9;AND TSMS_REQ_DTTM = {TSMS_REQ_DTTM}"/>
+            <param name="use-callable-statements" value="false"/>
+            <param name="send-null-tuple" value="false"/>
+            <param name="jdbc-output-column" value="0"/>
+            <target-list>
+                <item name="table" selection="none"/>
+                <item name="input" selection="all"/>
+            </target-list>
+            <param name="result-set" value="query"/>
+            <param name="query-timeout-ms" value="${jdbc-timeout}"/>
+        </box>
+        <box name="Add_otherWise_Info" type="map">
+            <input port="1" stream="out:UPDATE_CEP_otherWise_1"/>
+            <output port="1" stream="out:Add_otherWise_Info_1"/>
+            <target-list>
+                <item name="input" selection="none"/>
+                <expressions>
+                    <include field="APP_ID">cep_slc_nts_001</include>
+                    <include field="STATUS">"W"</include>
+                    <include field="DETAIL">"No data from result of join query"</include>
+                    <include field="TIME">now()</include>
+                    <include field="KEYS">"MSG_ID : " + MSG_ID  + " |  TSMS_REQ_DTTM  : "+TSMS_REQ_DTTM</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="TupleToJSON" type="java">
+            <input port="1" stream="out:CombineData_1"/>
+            <output port="1" stream="out:TupleToJSON_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.operator.jsontuple.Tuple2JSON"/>
+            <param name="EnableStatusPort" value="false"/>
+            <param name="encodeSubType" value="Map"/>
+            <param name="includeNullFields" value="false"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="outputFieldName" value="JSON"/>
+            <param name="timestampAsLong" value="false"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+            <param name="tupleField" value="TB"/>
+        </box>
+        <box name="MapBucketing" type="map">
+            <input port="1" stream="out:TupleToJSON_1"/>
+            <output port="1" stream="out:MapBucketing_1"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <expressions>
+                    <declare field="addDateJsonString">calljava("com.lgu.seamless.util.JsonUtils", "addElementToJsonString", JSON ,JS_CUCT_DTTM, "CUCT_DTTM")</declare>
+                    <include field="filter">'{"CUST_NO":' + input1.TB.CUST_NO + ',"YYMM": "' + input1.YYMM + '","HST_CNT":{"$lt":100}},'</include>
+                    <declare field="func">'{"$inc":{"HST_CNT":1},'+'"$min":{"CUCT_DTTM_MIN": new ISODate("'+MK_CUCT_DTTM+'")},'+'"$max":{"CUCT_DTTM_MAX": new ISODate("'+MK_CUCT_DTTM+'"), "CUST_EXP_EXTR_DT": new ISODate("'+input1.CUST_EXP_EXTR_DT+'")},'</declare>
+                    <declare field="inputdata">'"$push":{"CUST_CNTA_EXP_H":'+addDateJsonString+'}}'</declare>
+                    <include field="param">func+inputdata</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="MapMongoDB" type="map">
+            <input port="1" stream="out:MapBucketing_1"/>
+            <output port="1" stream="out:MapMongoDB_1"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <expressions>
+                    <include field="ID">""</include>
+                    <include field="Filter">filter</include>
+                    <include field="Collection">"${mongodb-collection}"</include>
+                    <include field="Data">param</include>
+                    <include field="DataList">""</include>
+                    <include field="Command">"upsert"</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="InsertMongo" type="java">
+            <input dispatch="round_robin" port="1" stream="out:MapMongoDB_1"/>
+            <output port="1" stream="out:InsertMongo_1"/>
+            <param name="parallel" value="true"/>
+            <multiplicity number="${multiplicity}" type="concrete"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.tibco.sb.mongodb.Mongo"/>
+            <param name="DB" value="${mongodb-db}"/>
+            <param name="Url" value="${mongodb-url}"/>
+            <param name="collection" value="input1.Collection"/>
+            <param name="connectionTimeOutMs" value="30000"/>
+            <param name="maxConnPool" value="${mongodb-max-conn-pool}"/>
+            <param name="minConnPool" value="${mongodb-min-conn-pool}"/>
+            <param name="monitorConnection" value="false"/>
+            <param name="serverSelectionTimeoutMs" value="30000"/>
+            <param name="sharedClient" value="true"/>
+            <param name="socketTimeOutMs" value="30000"/>
+        </box>
+        <box name="Update_Master_CEP" type="query">
+            <input dispatch="round_robin" port="1" stream="out:InsertMongo_1"/>
+            <output port="1" stream="out:Update_Master_CEP_1"/>
+            <dataref id="jdbctable" name="JDBCTable"/>
+            <multiplicity number="${multiplicity}" type="concrete"/>
+            <param name="sql" value="UPDATE TB_EACM_MSG_SEND_REQ_D &#13;&#10;SET CEP_PRSS_STUS_CD = {CEP_C_FLAG},&#13;&#10;&#9;CEP_UPDATE_DATE = SYSDATE&#13;&#10;WHERE 1=1&#13;&#10;&#9;AND MSG_ID = {input1.PassThrough.MSG_ID}&#13;&#10;&#9;AND TSMS_REQ_DTTM = {input1.PassThrough.TSMS_REQ_DTTM}"/>
+            <param name="use-callable-statements" value="false"/>
+            <param name="send-null-tuple" value="false"/>
+            <param name="jdbc-output-column" value="0"/>
+            <target-list>
+                <item name="table" selection="none"/>
+                <item name="input" selection="none"/>
+                <expressions>
+                    <include field="PROD_NO">input1.PassThrough.TB.PROD_NO</include>
+                    <include field="PROD_CD">input1.PassThrough.TB.PROD_CD</include>
+                    <include field="PROD_NM">input1.PassThrough.TB.PROD_NM</include>
+                    <include field="CUCT_EXP_EXTR_DT">input1.PassThrough.TB.CUCT_EXP_EXTR_DT</include>
+                    <include field="CUCT_DTTM">input1.PassThrough.TB.CUCT_DTTM</include>
+                    <include field="CUST_NO">input1.PassThrough.TB.CUST_NO</include>
+                    <include field="HPNO">input1.PassThrough.TB.HPNO</include>
+                    <include field="ENTR_NO">input1.PassThrough.TB.ENTR_NO</include>
+                    <include field="CUCT_DATA_SRCE_CD">input1.PassThrough.TB.CUCT_DATA_SRCE_CD</include>
+                    <include field="CUCT_DATA_SRCE_NM">input1.PassThrough.TB.CUCT_DATA_SRCE_NM</include>
+                    <include field="CUCT_KD_CD">input1.PassThrough.TB.CUCT_KD_CD</include>
+                    <include field="CUCT_KD_NM">input1.PassThrough.TB.CUCT_KD_NM</include>
+                    <include field="CUCT_CHNL_KD_SRC_CDV">input1.PassThrough.TB.CUCT_CHNL_KD_SRC_CDV</include>
+                    <include field="CUCT_CHNL_KD_NM">input1.PassThrough.TB.CUCT_CHNL_KD_NM</include>
+                    <include field="CUCT_CHNL_DIVS_CDV">input1.PassThrough.TB.CUCT_CHNL_DIVS_CDV</include>
+                    <include field="CUCT_CHNL_DIVS_NM">input1.PassThrough.TB.CUCT_CHNL_DIVS_NM</include>
+                    <include field="CUCT_CHNL_DETL_CDV">input1.PassThrough.TB.CUCT_CHNL_DETL_CDV</include>
+                    <include field="CUCT_CHNL_DETL_NM">input1.PassThrough.TB.CUCT_CHNL_DETL_NM</include>
+                    <include field="CUST_CNSL_MEMO_CNTN">input1.PassThrough.TB.CUST_CNSL_MEMO_CNTN</include>
+                    <include field="CUCT_EXP_CNTN4">input1.PassThrough.TB.CUCT_EXP_CNTN4</include>
+                    <include field="CUCT_EXP_CNTN6">input1.PassThrough.TB.CUCT_EXP_CNTN6</include>
+                    <include field="CUCT_EXP_CNTN7">input1.PassThrough.TB.CUCT_EXP_CNTN7</include>
+                    <include field="CUCT_EXP_CNTN10">input1.PassThrough.TB.CUCT_EXP_CNTN10</include>
+                    <include field="SYS_CREATION_DATE">input1.PassThrough.TB.SYS_CREATION_DATE</include>
+                    <include field="OPERATOR_ID">input1.PassThrough.TB.OPERATOR_ID</include>
+                    <include field="APPLICATION_ID">input1.PassThrough.TB.APPLICATION_ID</include>
+                    <include field="MSG_ID">input1.PassThrough.MSG_ID</include>
+                    <include field="CUCT_GRP_NO">input1.PassThrough.CUCT_GRP_NO</include>
+                </expressions>
+            </target-list>
+            <param name="result-set" value="query"/>
+            <param name="query-timeout-ms" value="${jdbc-timeout}"/>
+        </box>
+        <box name="Map_TargetTable_Schema" type="map">
+            <input port="1" stream="out:Update_Master_CEP_1"/>
+            <output port="1" stream="out:Map_TargetTable_Schema_1"/>
+            <target-list>
+                <item name="input" selection="all">
+                    <remove field="SYS_CREATION_DATE"/>
+                </item>
+                <expressions>
+                    <include field="APP_NAME">cep_slc_nts_001</include>
+                    <include field="CUST_CNSL_DIVS_CDV">''</include>
+                    <include field="CUST_CNSL_DIVS_NM">''</include>
+                    <include field="CUST_CNSL_KD_CDV">''</include>
+                    <include field="CUST_CNSL_KD_NM">''</include>
+                    <include field="SYS_CREATION_DATE">now()</include>
+                    <include field="SYS_UPDATE_DATE">now()</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="Add_Com_Info" type="map">
+            <input port="1" stream="out:Map_TargetTable_Schema_1"/>
+            <output port="1" stream="out:Add_Com_Info_1"/>
+            <target-list>
+                <item name="input" selection="none"/>
+                <expressions>
+                    <include field="APP_ID">cep_slc_nts_001</include>
+                    <include field="STATUS">"C"</include>
+                    <include field="DETAIL">""</include>
+                    <include field="TIME">now()</include>
+                    <include field="KEYS">"MSG_ID : " + MSG_ID  + " |  TSMS_REQ_DTTM  : " + CUCT_DTTM</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="Union2" type="union">
+            <input port="1" stream="out:Add_Com_Info_1"/>
+            <input port="2" stream="out:Add_otherWise_Info_1"/>
+            <input port="3" stream="out:Add_Err_Info_1"/>
+            <output port="1" stream="out:Union2_1"/>
+            <param name="strict" value="false"/>
+        </box>
+        <module-reference name="Logger">
+            <input name="InputStream" port="1" stream="out:Union2_1"/>
+            <param name="parallel" value="true"/>
+            <multiplicity number="${multiplicity}" type="concrete"/>
+            <param name="file" value="com.lgu.seamless.seamlessapplication.Logger"/>
+        </module-reference>
+    </add>
+</modify>

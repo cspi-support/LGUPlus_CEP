@@ -1,0 +1,455 @@
+name = "jmsAdapter"
+type = "com.tibco.ep.streambase.configuration.adapter"
+version = "1.0.0"
+configuration = {
+
+	// An EventFlow JMS adapter configuration.
+	JMSAdapter = {
+
+		// Fully-qualified class name of the adapter, e.g. 'com.streambase.sb.adapter.jms.enqueue.JMSWriter'. This key is
+		// optional and has no default value.
+		adapterClassName = "com.streambase.sb.adapter.jms.enqueue.JMSWriter"
+
+		// An associative array of JMS server configurations, used by this adapter to subscribe to messages from one or more
+		// JMS message buses. This key is required and must contain at least one server configuration.
+		jmsServers = {
+
+			// A JMS server is configured using this object. Server names containing dots must be surrounded with double quotes.
+			// There are two different ways of connecting, one using JNDI, and one without using JNDI. To connect to a JMS server
+			// using JNDI (LDAP, etc.) an initial JNDI Context is instantiated using values for Context.INITIAL_CONTEXT_FACTORY
+			// and Context.PROVIDER_URL. Required attibutes are providerContextFactoryClassName, providerURL, and
+			// connectionFactoryName. To connect to JMS WITHOUT using JNDI, you must specify the name of a class implementing
+			// javax.jms.ConnectionFactory, as well as the URL to use. Required attributes are connectionFactoryClassName and
+			// connectionFactoryURL.
+			EMS-SERVER = {
+
+				// The name of the connection factory class to instantiate. It is assumed that this class implements a constructor
+				// taking one String parameter that represents the URL of the JMS broker. This parameter is required if connecting
+				// WITHOUT JNDI.
+				connectionFactoryClassName = "com.tibco.tibjms.TibjmsTopicConnectionFactory"
+
+				// The broker URL to pass to the connection factory at construction time. This parameter is required if connecting
+				// WITHOUT JNDI.
+				//connectionFactoryURL = ${emsUrl:-"tcp://localhost:7222"}
+				connectionFactoryURL = ${emsUrl:-"tcp://localhost:7222"}
+				
+				// Description of a JMS server. This key is optional and has no default value.
+				description = "Sample EMS server definition"
+
+				// An associative array of named destinations. This key is optional and has no default value.
+				destinations = {
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"Q.BUCKETING" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						
+						
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"Q.TEMPLATE" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"q.slc.crm.001" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						timeToLiveMilliseconds = 10000
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"q.slc.gcp.001" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						timeToLiveMilliseconds = 10000
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"q.slc.gcp.002" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						timeToLiveMilliseconds = 10000
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"q.slc.has.001" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						timeToLiveMilliseconds = 10000
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"q.slc.has.002" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						timeToLiveMilliseconds = 10000
+					}
+					
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"q.slc.sqm.001" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						timeToLiveMilliseconds = 10000
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"q.slc.mas.001" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						timeToLiveMilliseconds = 10000
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"q.slc.mas.002" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						timeToLiveMilliseconds = 10000
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"q.slc.nts.001" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						timeToLiveMilliseconds = 10000
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"q.slc.sms.001" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						timeToLiveMilliseconds = 10000
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"q.slc.smt.001" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						timeToLiveMilliseconds = 10000
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"q.slc.ucb.001" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						timeToLiveMilliseconds = 10000
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"q.slc.ucb.002" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						timeToLiveMilliseconds = 10000
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"q.slc.ucb.003" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						timeToLiveMilliseconds = 10000
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"q.slc.ucb.004" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						timeToLiveMilliseconds = 10000
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"q.slc.uvc.001" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+						timeToLiveMilliseconds = 10000
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"queue.AckSampleQueue" = {
+
+						// The mode that is used to acknowledge JMS messages. Values include AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE,
+						// CLIENT_ACKNOWLEDGE, INDIVIDUAL_ACKNOWLEDGE (Apache ActiveMQ only), NO_ACKNOWLEDGE (TIBCO EMS only),
+						// EXPLICIT_CLIENT_ACKNOWLEDGE (TIBCO EMS only) and EXPLICIT_CLIENT_DUPS_OK_ACKNOWLEDGE (TIBCO EMS only). This key
+						// is optional and defaults to the owning JMS server's acknowledge mode.
+						acknowledgeMode = "EXPLICIT_CLIENT_ACKNOWLEDGE"
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "TOPIC"
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"queue.ReplyMessageQueue" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+
+						// Whether this destination is temporary. This key is optional and has its default value is false.
+						isTemporaryDestination = true
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"queue.RequestMessageQueue" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"queue.SimpleSampleQueue" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "TOPIC"
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"queue.TextMessageQueue1" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+
+						// The class used to translate JMS messages to EventFlow tuples. This key is optional and defaults to the adapter
+						// default message-to-tuple converter name.
+						messageToTupleConverterClassName = "com.streambase.sb.adapter.jms2.converters.DefaultFromJMSTextMessageConverter"
+
+						// The class used to translate EventFlow tuples to JMS messages. This key is optional and defaults to the adapter
+						// default tuple-to-message converter name.
+						tupleToMessageConverterClassName = "com.streambase.sb.adapter.jms2.converters.DefaultToJMSTextMessageConverter"
+					}
+
+					// Each destination is configured with a set of attributes. Destination names containing dots must be surrounded
+					// with double quotes. A default value for each attribute is provided where possible as there may be many
+					// destinations using the same values. If an attribute is left unspecified for a destination, then the default
+					// value of that attribute is used. For example, if the name map is left unspecified then the default name map is
+					// used (if present). If the attribute is left unspecified and no default is specified, then the associated
+					// operation is not performed. For example, if no name map is specified and there is no default name map, then no
+					// name mapping is done.
+					"queue.TextMessageQueue2" = {
+
+						// Whether this destination is a topic or a queue. This key is optional and is TOPIC if the adapter default
+						// use-topics setting is true, otherwise is QUEUE.
+						destinationType = "QUEUE"
+					}
+				}
+
+				// In the event of a connection failure, this indicates the number of times a reconnection should be attempted. 0
+				// means no attempt will be made; negative values are not allowed. This key is optional and its default value is the
+				// value of the defaultMaxReconnectAttempts value in the default JMS server settings section.
+				maxReconnectAttempts = 86400
+
+				// The name of the JMS provider running this server, e.g. 'TIBCO EMS', 'Apache ActiveMQ'. This key is optional and
+				// has no default value.
+				providerName = "TIBCO EMS"
+
+				// The number of seconds to wait between reconnection attempts. This key is optional and its default value is the
+				// value of the defaultReconnectSleepSeconds value in the default JMS server settings section.
+				reconnectSleepSeconds = 1
+			}
+
+			// A JMS server is configured using this object. Server names containing dots must be surrounded with double quotes.
+			// There are two different ways of connecting, one using JNDI, and one without using JNDI. To connect to a JMS server
+			// using JNDI (LDAP, etc.) an initial JNDI Context is instantiated using values for Context.INITIAL_CONTEXT_FACTORY
+			// and Context.PROVIDER_URL. Required attibutes are providerContextFactoryClassName, providerURL, and
+			// connectionFactoryName. To connect to JMS WITHOUT using JNDI, you must specify the name of a class implementing
+			// javax.jms.ConnectionFactory, as well as the URL to use. Required attributes are connectionFactoryClassName and
+			// connectionFactoryURL.
+			Server = {
+
+				// Name of a connection factory to be looked up by name via a JNDI lookup. This will then be used to construct the
+				// connection object. This parameter is required if connecting using JNDI.
+				connectionFactoryName = "ConnectionFactory"
+
+				// Class name to use as a value for javax.naming.Context.INITIAL_CONTEXT_FACTORY. This parameter is required if
+				// connecting using JNDI.
+				providerContextFactoryClassName = "com.tibco.tibjms.naming.TibjmsInitialContextFactory"
+
+				// The name of the JMS provider running this server, e.g. 'TIBCO EMS', 'Apache ActiveMQ'. This key is optional and
+				// has no default value.
+				providerName = "TIBCO EMS"
+
+				// The naming provider URL, as used by javax.namingContext.PROVIDER_URL. This parameter is required if connecting
+				// using JNDI.
+				providerURL = "tibjmsnaming://localhost:7222"
+			}
+		}
+	}
+}

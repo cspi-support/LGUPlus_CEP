@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Table:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Table="http:///com/tibco/cep/decision/table/model/DecisionTable.ecore" name="SmartAdviceInfo_DEC.sbdt" folder="src/main/resources">
+  <md>
+    <prop name="Priority" value="5"/>
+    <prop name="SingleRowExecution" type="Boolean" value="true"/>
+  </md>
+  <decisionTable>
+    <rule id="1">
+      <cond id="1_1" colId="1" expr="ORG_KD_CD = '51'"/>
+      <act id="1_2" colId="2" expr="'직영점'"/>
+    </rule>
+    <rule id="2">
+      <cond id="2_1" colId="1" expr="ORG_KD_CD = '52'"/>
+      <act id="2_2" colId="2" expr="'대리점'"/>
+    </rule>
+    <rule id="3">
+      <act id="3_2" colId="2" expr="'대리점'"/>
+    </rule>
+    <columns>
+      <column id="1" name="Field" propertyPath="" columnType="CUSTOM_CONDITION"/>
+      <column id="2" name="CUCT_CHNL_DETL_NM" propertyPath="" columnType="CUSTOM_ACTION"/>
+    </columns>
+  </decisionTable>
+</Table:Table>

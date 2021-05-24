@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application version="10.6.1_0a0fdf7f8f3d4f25851d53e0e55c97ce2ece3d22">
+    <annotations>
+        <annotation name="hygienic"/>
+    </annotations>
+    <type-metadata>
+        <param name="type" value="interface"/>
+        <param name="fully-qualified-name" value="com.lgu.seamless.seamlessapplication.CEPApplicationInf"/>
+    </type-metadata>
+    <memory-model-settings/>
+    <named-schemas>
+        <schema name="CEPAppInputStremSchema">
+            <field name="CUST_NO" type="string"/>
+            <field name="CUST_MEMO_NO" type="string"/>
+            <field name="CUST_GRP_NO" type="string"/>
+            <field name="ENTR_NO" type="string"/>
+            <field name="PROD_NO" type="string"/>
+            <field name="APLY_LVL_CD" type="string"/>
+            <field name="MEMO_CRTE_DLR_CD" type="string"/>
+            <field name="MEMO_CRTE_DLR_NM" type="string"/>
+            <field name="MEMO_CRTE_DTTM" type="string"/>
+            <field name="MEMO_KD_CD" type="string"/>
+            <field name="CTI_CALL_NO" type="string"/>
+            <field name="SYS_CREATION_DATE" type="string"/>
+            <field name="SYS_UPDATE_DATE" type="string"/>
+            <field name="OPERATOR_ID" type="string"/>
+            <field name="APPLICATION_ID" type="string"/>
+            <field name="DL_SERVICE_CODE" type="string"/>
+            <field name="DL_UPDATE_STAMP" type="string"/>
+            <field name="ENTR_RQST_NO" type="string"/>
+            <field name="FLAG" type="string"/>
+        </schema>
+        <schema name="CEPApplResvInfoSchema">
+            <field name="RSV_SALE_RQST_DTTM" type="timestamp"/>
+            <field name="RSV_SALE_RQST_CUST_TLNO" type="string"/>
+            <field name="ENTR_NO" type="long"/>
+            <field name="CMPN_ID" type="string"/>
+            <field name="RSV_SALE_TRM_MDL_CD" type="string"/>
+            <field name="RSV_SALE_LEDN_CHNL_DIVS_CD" type="string"/>
+            <field name="RSV_SALE_ENTR_FORM_DIVS_CD" type="string"/>
+            <field name="RSV_SALE_RCPT_EMP_NM" type="string"/>
+            <field name="RSV_SALE_NO" type="string"/>
+            <field name="CMPN_ORCT" type="long"/>
+            <field name="RSV_SALE_RCEP_MTHD_CD" type="string"/>
+            <field name="RSV_SALE_MMRY_CAPA_CD" type="string"/>
+            <field name="RSV_SALE_TRM_COLR_CD" type="string"/>
+            <field name="RSV_SALE_RCPT_INTG_USER_ID" type="string"/>
+            <field name="CEP_REPS_CNT" type="int"/>
+        </schema>
+        <schema name="CEPChbtLogHistSchema">
+            <field name="CUCT_DTTM" type="timestamp"/>
+            <field name="CUST_NO" type="long"/>
+            <field name="ENTR_NO" type="long"/>
+            <field name="CUCT_DATA_SRCE_CD" type="string"/>
+            <field name="CUCT_DATA_SRCE_NM" type="string"/>
+            <field name="CUCT_KD_CD" type="string"/>
+            <field name="CUCT_KD_NM" type="string"/>
+            <field name="CUCT_CHNL_KD_SRC_CDV" type="string"/>
+            <field name="CUCT_CHNL_KD_NM" type="string"/>
+            <field name="CUCT_CHNL_DIVS_NM" type="string"/>
+            <field name="CUCT_CHNL_DETL_NM" type="string"/>
+            <field name="CUST_CNSL_MEMO_CNTN" type="string"/>
+            <field name="CUCT_EXP_CNTN10" type="string"/>
+            <field name="SNO_ID" type="string"/>
+            <field name="CHBT_CNVS_DTTM" type="string"/>
+            <field name="CEP_REPS_CNT" type="int"/>
+        </schema>
+        <schema name="CEPCmpnSmsHistSchema">
+            <field name="DELIV_DTM" type="timestamp"/>
+            <field name="CUST_NO" type="long"/>
+            <field name="CUST_UNIQ_NO" type="long"/>
+            <field name="RSLT_CD" type="string"/>
+            <field name="SEND_YYMM" type="string"/>
+            <field name="RSLT_DELIV_NO" type="long"/>
+            <field name="RECPT_NO" type="long"/>
+            <field name="LIST_PART" type="string"/>
+            <field name="CEP_REPS_CNT" type="int"/>
+        </schema>
+        <schema name="CEPCustMemoAddedSchema">
+            <field name="CUCT_DATA_SRCE_CD" type="string"/>
+            <field name="CUCT_DATA_SRCE_NM" type="string"/>
+            <field name="CUCT_KD_CD" type="string"/>
+            <field name="CUCT_KD_NM" type="string"/>
+            <field name="CUCT_CHNL_KD_SRC_CDV" type="string"/>
+            <field name="CUCT_CHNL_KD_NM" type="string"/>
+            <field name="CUCT_CHNL_DIVS_CDV" type="string"/>
+            <field name="CUCT_CHNL_DIVS_NM" type="string"/>
+        </schema>
+        <schema name="CEPCustMemoHistSchema">
+            <field name="CUST_NO" type="long"/>
+            <field name="CUST_MEMO_NO" type="long"/>
+            <field name="CUST_GRP_NO" type="int"/>
+            <field name="ENTR_NO" type="long"/>
+            <field name="PROD_NO" type="long"/>
+            <field name="APLY_LVL_CD" type="string"/>
+            <field name="MEMO_CRTE_DLR_CD" type="string"/>
+            <field name="MEMO_CRTE_DLR_NM" type="string"/>
+            <field name="MEMO_CRTE_DTTM" type="timestamp"/>
+            <field name="MEMO_KD_CD" type="string"/>
+            <field name="CTI_CALL_NO" type="long"/>
+            <field name="SYS_CREATION_DATE" type="timestamp"/>
+            <field name="SYS_UPDATE_DATE" type="timestamp"/>
+            <field name="OPERATOR_ID" type="long"/>
+            <field name="APPLICATION_ID" type="string"/>
+            <field name="DL_SERVICE_CODE" type="string"/>
+            <field name="DL_UPDATE_STAMP" type="long"/>
+            <field name="ENTR_RQST_NO" type="long"/>
+            <field name="CEP_PRSS_STUS_CD" type="string"/>
+            <field name="CEP_REPS_CNT" type="int"/>
+            <field name="CEP_CREATION_DATE" type="timestamp"/>
+        </schema>
+        <schema name="CEPRespHistAPPInputSchema">
+            <field name="CUST_RSPN_DTTM" type="string"/>
+            <field name="CUST_NO" type="string"/>
+            <field name="ENTR_NO" type="string"/>
+            <field name="PROD_CD" type="string"/>
+            <field name="RSPN_DV_CD" type="string"/>
+            <field name="CUST_RSPN_MEMO" type="string"/>
+            <field name="CUST_RSPN_SEQNO" type="string"/>
+            <field name="USER_ID" type="string"/>
+            <field name="APPLICATION_ID" type="string"/>
+            <field name="RSPN_CLSS_CD" type="string"/>
+            <field name="FLAG" type="string"/>
+        </schema>
+        <schema name="CEPUcubeSmsHistSchema">
+            <field name="USER_ID" type="long"/>
+            <field name="SEND_RQST_DTTM" type="timestamp"/>
+            <field name="REAL_SEND_DTTM" type="timestamp"/>
+            <field name="HLDR_CUST_NO" type="long"/>
+            <field name="CTN" type="string"/>
+            <field name="ENTR_NO" type="long"/>
+            <field name="SMS_SEND_PHR" type="string"/>
+            <field name="SEND_RSLT_CD" type="string"/>
+            <field name="SMS_SEND_SEQNO" type="long"/>
+            <field name="SEND_RSN_CD" type="string"/>
+            <field name="CEP_REPS_CNT" type="int"/>
+        </schema>
+        <schema name="LVTbLogNewSchema">
+            <field name="APP_ID" type="string"/>
+            <field name="STATUS" type="string"/>
+            <field name="OPERATOR" type="string"/>
+            <field name="ORIGINAL_TUPLE" type="string"/>
+            <field name="DETAIL" type="string"/>
+            <field name="TIME" type="timestamp"/>
+            <field name="KEYS" type="string"/>
+        </schema>
+        <schema name="LVTbLogSchema">
+            <field name="APP_NAME" type="string"/>
+            <field name="STATUS" type="string"/>
+            <field name="OPERATOR" type="string"/>
+            <field name="DETAIL" type="string"/>
+            <field name="TIME" type="timestamp"/>
+            <field name="KEYS" type="string"/>
+        </schema>
+        <schema name="TB_CC_CUST_CNTA_EXP_H">
+            <field name="CUCT_EXP_EXTR_DT" type="string"/>
+            <field name="CUCT_DTTM" type="timestamp"/>
+            <field name="CUST_NO" type="long"/>
+            <field name="HPNO" type="string"/>
+            <field name="ENTR_NO" type="long"/>
+            <field name="PROD_NO" type="string"/>
+            <field name="PROD_CD" type="string"/>
+            <field name="PROD_NM" type="string"/>
+            <field name="PP_CD" type="string"/>
+            <field name="PP_NM" type="string"/>
+            <field name="TRM_CD" type="string"/>
+            <field name="DSP_TRM_NM" type="string"/>
+            <field name="CUCT_DATA_SRCE_CD" type="string"/>
+            <field name="CUCT_DATA_SRCE_NM" type="string"/>
+            <field name="CUCT_KD_CD" type="string"/>
+            <field name="CUCT_KD_NM" type="string"/>
+            <field name="CUCT_CHNL_KD_SRC_CDV" type="string"/>
+            <field name="CUCT_CHNL_KD_NM" type="string"/>
+            <field name="CUCT_CHNL_DIVS_CDV" type="string"/>
+            <field name="CUCT_CHNL_DIVS_NM" type="string"/>
+            <field name="CUCT_CHNL_DETL_CDV" type="string"/>
+            <field name="CUCT_CHNL_DETL_NM" type="string"/>
+            <field name="CUST_CNSL_DIVS_CDV" type="string"/>
+            <field name="CUST_CNSL_DIVS_NM" type="string"/>
+            <field name="CUST_CNSL_KD_CDV" type="string"/>
+            <field name="CUST_CNSL_KD_NM" type="string"/>
+            <field name="CUST_CNSL_MEMO_CNTN" type="string"/>
+            <field name="CUCT_EXP_CNTN1" type="string"/>
+            <field name="CUCT_EXP_CNTN2" type="string"/>
+            <field name="CUCT_EXP_CNTN3" type="string"/>
+            <field name="CUCT_EXP_CNTN4" type="string"/>
+            <field name="CUCT_EXP_CNTN5" type="string"/>
+            <field name="CUCT_EXP_CNTN6" type="string"/>
+            <field name="CUCT_EXP_CNTN7" type="string"/>
+            <field name="CUCT_EXP_CNTN8" type="string"/>
+            <field name="CUCT_EXP_CNTN9" type="string"/>
+            <field name="CUCT_EXP_CNTN10" type="string"/>
+            <field name="SYS_CREATION_DATE" type="timestamp"/>
+            <field name="SYS_UPDATE_DATE" type="timestamp"/>
+            <field name="OPERATOR_ID" type="long"/>
+            <field name="USER_NM" type="string"/>
+            <field name="APPLICATION_ID" type="string"/>
+            <field name="DL_SERVICE_CODE" type="string"/>
+            <field name="DL_UPDATE_STAMP" type="int"/>
+            <field name="CUST_GRP_NO" type="int"/>
+        </schema>
+        <schema name="WebServerResponseHttpHeaderSchema">
+            <field name="Key" type="string"/>
+            <field name="Value" type="string"/>
+        </schema>
+    </named-schemas>
+    <constant expr="&quot;C&quot;" name="CEP_C_FLAG"/>
+    <constant expr="&quot;E&quot;" name="CEP_E_FLAG"/>
+    <constant expr="&quot;N&quot;" name="CEP_N_FLAG"/>
+    <constant expr="&quot;P&quot;" name="CEP_P_FLAG"/>
+    <constant expr="&quot;W&quot;" name="CEP_W_FLAG"/>
+    <constant description="Constant of cep-slc-crm-001" expr="&quot;cep-slc-crm-001&quot;" name="cep_slc_crm_001"/>
+    <constant description="Constant of cep-slc-gcp-001" expr="&quot;cep-slc-gcp-001&quot;" name="cep_slc_gcp_001"/>
+    <constant description="Constant of cep-slc-gcp-002" expr="&quot;cep-slc-gcp-002&quot;" name="cep_slc_gcp_002"/>
+    <constant description="Constant of cep-slc-has-001" expr="&quot;cep-slc-has-001&quot;" name="cep_slc_has_001"/>
+    <constant description="Constant of cep-slc-has-002" expr="&quot;cep-slc-has-002&quot;" name="cep_slc_has_002"/>
+    <constant description="Constant of cep-slc-mas-001" expr="&quot;cep-slc-mas-001&quot;" name="cep_slc_mas_001"/>
+    <constant description="Constant of cep-slc-mas-002" expr="&quot;cep-slc-mas-002&quot;" name="cep_slc_mas_002"/>
+    <constant description="Constant of cep-slc-nts-001" expr="&quot;cep-slc-nts-001&quot;" name="cep_slc_nts_001"/>
+    <constant description="Constant of cep-slc-sms-001" expr="&quot;cep-slc-sms-001&quot;" name="cep_slc_sms_001"/>
+    <constant description="Constant of cep-slc-smt-001" expr="&quot;cep-slc-smt-001&quot;" name="cep_slc_smt_001"/>
+    <constant description="Constant of cep-slc-sqm-001" expr="&quot;cep-slc-sqm-001&quot;" name="cep_slc_sqm_001"/>
+    <constant description="Constant of cep-slc-ucb-001" expr="&quot;cep-slc-ucb-001&quot;" name="cep_slc_ucb_001"/>
+    <constant description="Constant of cep-slc-ucb-002" expr="&quot;cep-slc-ucb-002&quot;" name="cep_slc_ucb_002"/>
+    <constant description="Constant of cep-slc-ucb-003" expr="&quot;cep-slc-ucb-003&quot;" name="cep_slc_ucb_003"/>
+    <constant description="Constant of cep-slc-ucb-004" expr="&quot;cep-slc-ucb-004&quot;" name="cep_slc_ucb_004"/>
+    <constant description="Constant of cep-slc-uvc-001" expr="&quot;cep-slc-uvc-001&quot;" name="cep_slc_uvc_001"/>
+    <dynamic-variables/>
+    <table-schemas>
+        <table-schema name="CM_HB_ORG_BY_LVL">
+            <schema>
+                <field name="CUST_NO" type="string"/>
+            </schema>
+            <primary-index type="btree">
+                <field name="CUST_NO"/>
+            </primary-index>
+        </table-schema>
+        <table-schema name="CM_HB_USER">
+            <schema>
+                <field name="CUST_NO" type="string"/>
+            </schema>
+            <primary-index type="btree">
+                <field name="CUST_NO"/>
+            </primary-index>
+        </table-schema>
+        <table-schema name="TB_SB_CUST_MEMO_DTL">
+            <schema>
+                <field name="CUST_MEMO_DTL" type="string"/>
+                <field name="CUST_NO" type="string"/>
+            </schema>
+            <primary-index type="btree">
+                <field name="CUST_MEMO_DTL"/>
+            </primary-index>
+        </table-schema>
+        <table-schema name="TB_SB_MEMO_KD">
+            <schema>
+                <field name="MEMO_KD" type="string"/>
+            </schema>
+            <primary-index type="btree">
+                <field name="MEMO_KD"/>
+            </primary-index>
+        </table-schema>
+    </table-schemas>
+    <stream name="CEPApplicationInputStream" schema="CEPAppInputStremSchema"/>
+    <stream name="CEPRespHistAppInputStream" schema="CEPRespHistAPPInputSchema"/>
+</application>
